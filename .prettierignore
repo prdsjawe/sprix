@@ -2,5 +2,4 @@
 dist
 coverage
 
-*.html
 .vscode/extensions.json
