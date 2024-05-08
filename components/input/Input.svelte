@@ -1,0 +1,82 @@
+<script lang="ts">
+  import { createEventDispatcher, onMount } from 'svelte';
+  import type { HTMLInputTypeAttribute } from 'svelte/elements';
+
+  const ISR: InputRecord = {
+    sm: 'input-sm',
+    md: 'input-md',
+    lg: 'input-lg',
+  };
+
+  const LSR: InputRecord = {
+    sm: 'label-sm',
+    md: 'label-md',
+    lg: 'label-lg',
+  };
+
+  export let label: string;
+  export let showLabel: boolean = true;
+
+  export let value: string = '';
+
+  export let size: InputSize = 'md';
+  export let invalid: boolean = false;
+  export let disabled: boolean = false;
+
+  export let placeholder: string = '';
+  export let type: HTMLInputTypeAttribute = 'text';
+
+  export let showLeftIcon: boolean = false;
+  export let helper: string = '';
+  export let error: string = '';
+
+  const dispatch = createEventDispatcher();
+  let isPassword = false;
+
+  onMount(() => {
+    isPassword = type === 'password';
+
+    return () => {
+      isPassword = false;
+    };
+  });
+  const handleInput = (e: Event) => {
+    dispatch('input', { value: (e.target as HTMLInputElement).value });
+  };
+
+  $: labelClass = `label ${LSR[size]}`.trim().replace(/\s+/g, ' ');
+  $: inputClass =
+    `input ${ISR[size]} ${invalid ? 'invalid' : ''} ${disabled ? 'disabled' : ''}`
+      .trim()
+      .replace(/\s+/g, ' ');
+</script>
+
+<div class="input-group">
+  {#if showLabel}
+    <span class={labelClass}>{label}</span>
+  {/if}
+  <div class={inputClass}>
+    {#if showLeftIcon}
+      <span class="left-icon">
+        <slot name="left-icon"></slot>
+      </span>
+    {/if}
+    <input
+      {type}
+      {value}
+      {disabled}
+      {placeholder}
+      on:input={handleInput}
+    />
+  </div>
+  {#if helper}
+    <div class="helper">
+      <span class="text-xs text-gray-500">{helper}</span>
+    </div>
+  {/if}
+  {#if error}
+    <div class="error">
+      <span class="text-xs text-gray-500">{error}</span>
+    </div>
+  {/if}
+</div>
