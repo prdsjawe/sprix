@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { HTMLAttributeAnchorTarget } from 'svelte/elements';
+  import { trimClass } from '../../utils/common';
 
   export let class_: string = '';
 
@@ -46,15 +47,13 @@
     full: 'btn-rounded-full',
   };
 
-  $: finalClass = `btn ${class_}
+  $: finalClass = trimClass(`btn ${class_}
     ${BSR[size]}
     ${BVR[variant]}
     ${BRR[rounded]}
     ${plain ? 'btn-plain' : ''}
     ${outline ? 'btn-outline' : ''}
-    ${removePadding ? 'btn-rmp' : ''}`
-    .trim()
-    .replace(/\s+/g, ' ');
+    ${removePadding ? 'btn-rmp' : ''}`);
 
   $: disabledAttribute = disabled || loading;
 </script>

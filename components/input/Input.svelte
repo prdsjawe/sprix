@@ -1,6 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher, onMount } from 'svelte';
   import type { HTMLInputTypeAttribute } from 'svelte/elements';
+  import { trimClass } from '../../utils/common';
 
   const ISR: InputRecord = {
     sm: 'input-sm',
@@ -45,10 +46,9 @@
   };
 
   $: labelClass = `label ${LSR[size]}`.trim().replace(/\s+/g, ' ');
-  $: inputClass =
+  $: inputClass = trimClass(
     `input ${ISR[size]} ${invalid ? 'invalid' : ''} ${disabled ? 'disabled' : ''}`
-      .trim()
-      .replace(/\s+/g, ' ');
+  );
 </script>
 
 <div class="input-group">
