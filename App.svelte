@@ -1,14 +1,14 @@
 <script lang="ts">
   import { Checkbox } from './components/checkbox';
+  import { Radio } from './components/radio';
+  import { Toggle } from './components/toggle';
 </script>
 
 <div
   class="w-screen font-sans h-screen flex justify-center items-center"
 >
   <div class="min-w-[500px]">
-    <Checkbox
-      title="Remember Me"
-      description="testing 12424234"
+    <Checkbox title="Remember Me" description="testing 12424234"
     ></Checkbox>
   </div>
 </div>
