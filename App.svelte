@@ -1,12 +1,14 @@
 <script lang="ts">
-  import { Input } from './components/input';
-  import { Toggle } from './components/toggle';
+  import { Checkbox } from './components/checkbox';
 </script>
 
 <div
   class="w-screen font-sans h-screen flex justify-center items-center"
 >
-  <div>
-    <Toggle></Toggle>
+  <div class="min-w-[500px]">
+    <Checkbox
+      title="Remember Me"
+      description="testing 12424234"
+    ></Checkbox>
   </div>
 </div>
