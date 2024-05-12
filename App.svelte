@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Checkbox } from './components/checkbox';
   import { Radio } from './components/radio';
+  import { Textarea } from './components/textarea';
   import { Toggle } from './components/toggle';
 </script>
 
@@ -8,7 +9,6 @@
   class="w-screen font-sans h-screen flex justify-center items-center"
 >
   <div class="min-w-[500px]">
-    <Checkbox title="Remember Me" description="testing 12424234"
-    ></Checkbox>
+    <Textarea label="Hello" value="hello" helper="Hello"></Textarea>
   </div>
 </div>
