@@ -34,7 +34,7 @@
     dispatch('click', { active });
   };
 
-  $: radioGroup = trimClass(`flex flex-col ${TGSR[size]}`);
+  $: radioGroup = trimClass(`radio-group ${TGSR[size]}`);
 
   $: radio = trimClass(`radio ${TSR[size]} ${active ? 'active' : ''}`);
 

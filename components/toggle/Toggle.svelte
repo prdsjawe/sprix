@@ -33,7 +33,7 @@
     dispatch('click', { active });
   };
 
-  $: toggleGroup = trimClass(`flex flex-col ${TGSR[size]}`);
+  $: toggleGroup = trimClass(`toggle-group ${TGSR[size]}`);
 
   $: toggle = trimClass(
     `toggle ${TSR[size]} ${active ? 'active' : ''}`

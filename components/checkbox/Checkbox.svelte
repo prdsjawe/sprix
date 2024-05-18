@@ -34,7 +34,7 @@
     dispatch('click', { active });
   };
 
-  $: checkboxGroup = trimClass(`flex flex-col ${TGSR[size]}`);
+  $: checkboxGroup = trimClass(`checkbox-group ${TGSR[size]}`);
 
   $: checkbox = trimClass(
     `checkbox ${TSR[size]} ${active ? 'active' : ''}`

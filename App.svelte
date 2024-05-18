@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Alert } from './components/alert';
   import { Checkbox } from './components/checkbox';
   import { Radio } from './components/radio';
   import { Textarea } from './components/textarea';
@@ -9,6 +10,6 @@
   class="w-screen font-sans h-screen flex justify-center items-center"
 >
   <div class="min-w-[500px]">
-    <Textarea label="Hello" value="hello" helper="Hello"></Textarea>
+    <Alert></Alert>
   </div>
 </div>
