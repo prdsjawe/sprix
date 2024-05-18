@@ -21,23 +21,21 @@
   export let checked: boolean = false;
   export let position: TogglePosition = 'left';
 
-  let active: boolean = false;
+  let check: boolean = false;
 
   onMount(() => {
-    active = checked;
-    return () => (active = false);
+    check = checked;
+    return () => (check = false);
   });
 
   const handleClick = () => {
-    active = !active;
-    dispatch('click', { active });
+    check = !check;
+    dispatch('check', { check });
   };
 
   $: toggleGroup = trimClass(`toggle-group ${TGSR[size]}`);
 
-  $: toggle = trimClass(
-    `toggle ${TSR[size]} ${active ? 'active' : ''}`
-  );
+  $: toggle = trimClass(`toggle ${TSR[size]} ${check ? 'check' : ''}`);
 
   $: titleClass = trimClass(
     `${size == 'md' ? 'text-sm' : 'text-base'} font-medium`
@@ -59,7 +57,7 @@
         class={toggle}
         on:click={handleClick}
       >
-        <span class:active></span>
+        <span class:check></span>
       </button>
     </div>
 

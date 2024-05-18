@@ -22,22 +22,22 @@
   export let checked: boolean = false;
   export let position: CheckboxPosition = 'left';
 
-  let active: boolean = false;
+  let check: boolean = false;
 
   onMount(() => {
-    active = checked;
-    return () => (active = false);
+    check = checked;
+    return () => (check = false);
   });
 
   const handleClick = () => {
-    active = !active;
-    dispatch('click', { active });
+    check = !check;
+    dispatch('check', { check });
   };
 
   $: checkboxGroup = trimClass(`checkbox-group ${TGSR[size]}`);
 
   $: checkbox = trimClass(
-    `checkbox ${TSR[size]} ${active ? 'active' : ''}`
+    `checkbox ${TSR[size]} ${check ? 'check' : ''}`
   );
 
   $: titleClass = trimClass(
@@ -61,7 +61,7 @@
         on:click={handleClick}
       >
         <span>
-          {#if active}
+          {#if check}
             <Check></Check>
           {/if}
         </span>

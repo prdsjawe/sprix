@@ -22,21 +22,21 @@
   export let checked: boolean = false;
   export let position: RadioPosition = 'left';
 
-  let active: boolean = false;
+  let check: boolean = false;
 
   onMount(() => {
-    active = checked;
-    return () => (active = false);
+    check = checked;
+    return () => (check = false);
   });
 
   const handleClick = () => {
-    active = !active;
-    dispatch('click', { active });
+    check = !check;
+    dispatch('check', { check });
   };
 
   $: radioGroup = trimClass(`radio-group ${TGSR[size]}`);
 
-  $: radio = trimClass(`radio ${TSR[size]} ${active ? 'active' : ''}`);
+  $: radio = trimClass(`radio ${TSR[size]} ${check ? 'check' : ''}`);
 
   $: titleClass = trimClass(
     `${size == 'md' ? 'text-sm' : 'text-base'} font-medium`
@@ -58,7 +58,7 @@
         class={radio}
         on:click={handleClick}
       >
-        {#if active}
+        {#if check}
           <span></span>
         {/if}
       </button>
