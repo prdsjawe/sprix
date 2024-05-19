@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributeAnchorTarget } from 'svelte/elements';
   import { trimClass } from '../../utils/common';
+  import { createEventDispatcher } from 'svelte';
 
   export let class_: string = '';
 
@@ -13,24 +14,29 @@
   export let variant: BtnVariant = 'primary';
   export let rounded: BtnRounded = 'initial';
 
+  export let item: boolean = false;
   export let plain: boolean = false;
+  export let active: boolean = false;
   export let outline: boolean = false;
   export let loading: boolean = false;
   export let disabled: boolean = false;
   export let showLeftIcon: boolean = false;
   export let showRightIcon: boolean = false;
   export let removePadding: boolean = false;
+  export let tabindex: number = 0;
 
   export let trigger: HTMLElement | null = null;
 
+  const dispatch = createEventDispatcher();
+
   const BVR: BtnVariantRecord = {
-    primary: 'btn-primary',
-    secondary: 'btn-secondary',
+    tab: 'btn-tab',
     danger: 'btn-danger',
     success: 'btn-success',
     warning: 'btn-warning',
+    primary: 'btn-primary',
     dropdown: 'btn-dropdown',
-    'dropdown-item': 'btn-dropdown-item',
+    secondary: 'btn-secondary',
   };
 
   const BSR: BtnSizeRecord = {
@@ -53,7 +59,9 @@
     ${BRR[rounded]}
     ${plain ? 'btn-plain' : ''}
     ${outline ? 'btn-outline' : ''}
-    ${removePadding ? 'btn-rmp' : ''}`);
+    ${removePadding ? 'btn-rmp' : ''}
+    ${item ? 'btn-item' : ''} 
+    ${active ? 'btn-active' : ''}`);
 
   $: disabledAttribute = disabled || loading;
 </script>
@@ -86,7 +94,8 @@
     disabled={disabledAttribute}
     on:keydown|preventDefault={e =>
       ['Enter', 'Space'].includes(e.key) && e.currentTarget.click()}
-    tabindex={disabledAttribute ? -1 : 0}
+    tabindex={disabledAttribute ? -1 : tabindex}
+    on:click={() => dispatch('click')}
   >
     <div class="flex items-center">
       {#if loading}

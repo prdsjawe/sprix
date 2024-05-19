@@ -5,7 +5,7 @@ type BtnVariant =
   | 'danger'
   | 'warning'
   | 'dropdown'
-  | 'dropdown-item';
+  | 'tab';
 
 type BtnRounded = 'none' | 'initial' | 'full';
 

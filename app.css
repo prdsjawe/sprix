@@ -299,10 +299,18 @@
           @apply fill-black;
         }
       }
+
+      &.btn-item {
+        @apply bg-white rounded-md shadow-none border-none hover:bg-gray-100/80;
+      }
     }
 
-    &.btn-dropdown-item {
-      @apply bg-white rounded-md hover:bg-gray-100/80;
+    &.btn-tab {
+      @apply rounded-none;
+
+      &.btn-active {
+        @apply border-b-[3px] border-brand-500 text-brand-500;
+      }
     }
   }
 

@@ -1,14 +1,11 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
   import Button from '../button/Button.svelte';
 
-  export let content: HTMLElement | null = null;
-  export let items: DropdownItem[] = [];
   export let class_: string = '';
+  export let items: DropdownItem[] = [];
+  export let content: HTMLElement | null = null;
 
-  const dispatch = createEventDispatcher();
-
-  const handleClick = (item: DropdownItem) => {
+  const handleClick = (item: DropdownItem) => (e: Event) => {
     if (item.callback) {
       item.callback();
     }
@@ -20,8 +17,9 @@
     {#each items as item}
       <Button
         size="sm"
-        variant="dropdown-item"
-        on:click={() => handleClick(item)}
+        variant="dropdown"
+        item
+        on:click={handleClick(item)}
       >
         <svelte:fragment slot="label">
           {item.label}
