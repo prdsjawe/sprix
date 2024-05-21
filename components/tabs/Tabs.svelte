@@ -1,9 +1,11 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
   import { Button } from '../button';
+  import Tab from './Tab.svelte';
 
   export let items: TabItem[] = [];
   export let active: number = 0;
+  export let size: TabsSize = 'md';
 
   const dispatch = createEventDispatcher();
 
@@ -12,23 +14,20 @@
   };
 </script>
 
-<div
-  class="flex w-full gap-3 items-center justify-start border-b border-gray-100"
->
+<div class="tabs tabs-underline">
   {#each items as item, i}
     <div>
-      <Button
-        size="sm"
-        variant="tab"
+      <Tab
+        {size}
         tabindex={i}
         active={active === item.id}
-        item
+        notification={item.notification}
         on:click={handleActiveTab(item)}
       >
         <svelte:fragment slot="label">
           {item.label}
         </svelte:fragment>
-      </Button>
+      </Tab>
     </div>
   {/each}
 </div>

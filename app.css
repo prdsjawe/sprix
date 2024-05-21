@@ -304,14 +304,6 @@
         @apply bg-white rounded-md shadow-none border-none hover:bg-gray-100/80;
       }
     }
-
-    &.btn-tab {
-      @apply rounded-none;
-
-      &.btn-active {
-        @apply border-b-[3px] border-brand-500 text-brand-500;
-      }
-    }
   }
 
   .dropdown {
@@ -553,6 +545,33 @@
         span {
           @apply w-1.5 h-1.5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full;
         }
+      }
+    }
+  }
+
+  .tabs {
+    &.tabs-underline {
+      @apply flex w-full gap-4 items-center justify-start border-b border-gray-100;
+    }
+
+    .tab {
+      @apply rounded-none border-b-[3px] flex items-center gap-2 text-gray-500 border-transparent font-medium transition-all;
+
+      .notification {
+        @apply text-xs px-2 py-0.5;
+        @apply font-medium rounded-2xl bg-white text-gray-500 border border-gray-200;
+      }
+
+      &.tab-sm {
+        @apply text-sm pb-2 px-1;
+      }
+
+      &.tab-md {
+        @apply text-base pb-3 px-1;
+      }
+
+      &.tab-active {
+        @apply border-brand-500 text-brand-500;
       }
     }
   }

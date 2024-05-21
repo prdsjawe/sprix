@@ -4,8 +4,7 @@ type BtnVariant =
   | 'success'
   | 'danger'
   | 'warning'
-  | 'dropdown'
-  | 'tab';
+  | 'dropdown';
 
 type BtnRounded = 'none' | 'initial' | 'full';
 

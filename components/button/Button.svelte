@@ -30,7 +30,6 @@
   const dispatch = createEventDispatcher();
 
   const BVR: BtnVariantRecord = {
-    tab: 'btn-tab',
     danger: 'btn-danger',
     success: 'btn-success',
     warning: 'btn-warning',

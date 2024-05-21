@@ -13,6 +13,7 @@
 >
   <div>
     <Tabs
+      size="sm"
       items={TabsRecord}
       active={activeTab}
       on:active-tab={handleActiveTab}
