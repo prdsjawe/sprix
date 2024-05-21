@@ -4,13 +4,13 @@
 
   const dispatch = createEventDispatcher();
   const TSR: ToggleRecord = {
-    md: 'toggle-md',
-    lg: 'toggle-lg',
+    md: 'toggle-trigger-md',
+    lg: 'toggle-trigger-lg',
   };
 
   const TGSR: ToggleRecord = {
-    md: 'toggle-group-md',
-    lg: 'toggle-group-lg',
+    md: 'toggle-md',
+    lg: 'toggle-lg',
   };
 
   export let key: number = 0;
@@ -33,9 +33,11 @@
     dispatch('check', { check });
   };
 
-  $: toggleGroup = trimClass(`toggle-group ${TGSR[size]}`);
+  $: toggle = trimClass(`toggle ${TGSR[size]}`);
 
-  $: toggle = trimClass(`toggle ${TSR[size]} ${check ? 'check' : ''}`);
+  $: trigger = trimClass(
+    `trigger ${TSR[size]} ${check ? 'check' : ''}`
+  );
 
   $: titleClass = trimClass(
     `${size == 'md' ? 'text-sm' : 'text-base'} font-medium`
@@ -48,13 +50,13 @@
   );
 </script>
 
-<div class={toggleGroup}>
+<div class={toggle}>
   <div class="flex-1 flex gap-4 w-full items-center">
     <div class={position === 'left' ? 'order-1' : 'order-2'}>
       <button
         id="toggle-item-{key}"
         type="button"
-        class={toggle}
+        class={trigger}
         on:click={handleClick}
       >
         <span class:check></span>

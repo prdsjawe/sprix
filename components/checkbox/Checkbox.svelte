@@ -5,13 +5,13 @@
 
   const dispatch = createEventDispatcher();
   const TSR: CheckboxRecord = {
-    md: 'checkbox-md',
-    lg: 'checkbox-lg',
+    md: 'checkbox-trigger-md',
+    lg: 'checkbox-trigger-lg',
   };
 
   const TGSR: CheckboxRecord = {
-    md: 'checkbox-group-md',
-    lg: 'checkbox-group-lg',
+    md: 'checkbox-md',
+    lg: 'checkbox-lg',
   };
 
   export let key: number = 0;
@@ -34,10 +34,10 @@
     dispatch('check', { check });
   };
 
-  $: checkboxGroup = trimClass(`checkbox-group ${TGSR[size]}`);
+  $: checkboxGroup = trimClass(`checkbox ${TGSR[size]}`);
 
   $: checkbox = trimClass(
-    `checkbox ${TSR[size]} ${check ? 'check' : ''}`
+    `trigger ${TSR[size]} ${check ? 'check' : ''}`
   );
 
   $: titleClass = trimClass(

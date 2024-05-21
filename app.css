@@ -412,22 +412,22 @@
     }
   }
 
-  .toggle-group {
+  .toggle {
     @apply flex flex-col;
 
-    .toggle-group-md {
+    .toggle-md {
       .sr-hidden {
         @apply w-9 p-0.5 opacity-0;
       }
     }
 
-    .toggle-group-lg {
+    .toggle-lg {
       .sr-hidden {
         @apply w-11 p-0.5 opacity-0;
       }
     }
 
-    .toggle {
+    .trigger {
       @apply flex flex-1 relative;
       @apply transition-all duration-300 cursor-pointer;
       @apply border border-gray-200 bg-gray-100 rounded-full;
@@ -446,7 +446,7 @@
         }
       }
 
-      &.toggle-md {
+      &.toggle-trigger-md {
         @apply w-9 p-0.5;
 
         &:focus {
@@ -466,7 +466,7 @@
         }
       }
 
-      &.toggle-lg {
+      &.toggle-trigger-lg {
         @apply w-11 p-0.5;
 
         &:focus {
@@ -488,22 +488,22 @@
     }
   }
 
-  .checkbox-group {
+  .checkbox {
     @apply flex flex-col;
 
-    .checkbox-group-md {
+    .checkbox-md {
       .sr-hidden {
         @apply w-4 h-4 opacity-0;
       }
     }
 
-    .checkbox-group-lg {
+    .checkbox-lg {
       .sr-hidden {
         @apply w-4 h-4 opacity-0;
       }
     }
 
-    .checkbox {
+    .trigger {
       @apply flex flex-1 relative;
       @apply transition-all duration-300 cursor-pointer;
       @apply border border-gray-200 bg-gray-50 rounded-md;
@@ -512,8 +512,8 @@
         @apply bg-brand-500 border-brand-600;
       }
 
-      &.checkbox-md,
-      &.checkbox-lg {
+      &.checkbox-trigger-md,
+      &.checkbox-trigger-lg {
         @apply w-4 h-4 p-0.5 flex items-center justify-center;
 
         &:focus {
@@ -531,22 +531,22 @@
     }
   }
 
-  .radio-group {
+  .radio {
     @apply flex flex-col;
 
-    .radio-group-md {
+    .radio-md {
       .sr-hidden {
         @apply w-4 h-4 opacity-0;
       }
     }
 
-    .radio-group-lg {
+    .radio-lg {
       .sr-hidden {
         @apply w-4 h-4 opacity-0;
       }
     }
 
-    .radio {
+    .trigger {
       @apply flex flex-1 relative;
       @apply transition-all duration-300 cursor-pointer;
       @apply border border-gray-200 bg-gray-50 rounded-full;
@@ -555,8 +555,8 @@
         @apply bg-brand-500 border-brand-600;
       }
 
-      &.radio-md,
-      &.radio-lg {
+      &.radio-trigger-md,
+      &.radio-trigger-lg {
         @apply w-4 h-4 p-0.5 relative;
 
         &:focus {

@@ -1,17 +1,17 @@
 <script lang="ts">
   import { createEventDispatcher, onMount } from 'svelte';
   import { trimClass } from '../../utils/common';
-  import { Check } from '../../icons';
 
   const dispatch = createEventDispatcher();
-  const TSR: RadioRecord = {
+
+  const TGSR: RadioRecord = {
     md: 'radio-md',
     lg: 'radio-lg',
   };
 
-  const TGSR: RadioRecord = {
-    md: 'radio-group-md',
-    lg: 'radio-group-lg',
+  const TSR: RadioRecord = {
+    md: 'radio-trigger-md',
+    lg: 'radio-trigger-lg',
   };
 
   export let key: number = 0;
@@ -34,9 +34,11 @@
     dispatch('check', { check });
   };
 
-  $: radioGroup = trimClass(`radio-group ${TGSR[size]}`);
+  $: radio = trimClass(`radio ${TGSR[size]}`);
 
-  $: radio = trimClass(`radio ${TSR[size]} ${check ? 'check' : ''}`);
+  $: trigger = trimClass(
+    `trigger ${TSR[size]} ${check ? 'check' : ''}`
+  );
 
   $: titleClass = trimClass(
     `${size == 'md' ? 'text-sm' : 'text-base'} font-medium`
@@ -49,13 +51,13 @@
   );
 </script>
 
-<div class={radioGroup}>
+<div class={radio}>
   <div class="flex-1 flex gap-4 w-full items-center">
     <div class={position === 'left' ? 'order-1' : 'order-2'}>
       <button
-        id="radio-item-{key}"
+        id="radio-trigger-{key}"
         type="button"
-        class={radio}
+        class={trigger}
         on:click={handleClick}
       >
         {#if check}
@@ -65,7 +67,7 @@
     </div>
 
     <label
-      for="radio-item-{key}"
+      for="radio-trigger-{key}"
       class="select-none cursor-pointer flex-1 {position === 'left'
         ? 'order-2'
         : 'order-1'}"
