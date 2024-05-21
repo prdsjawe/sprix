@@ -16,6 +16,7 @@
 
   export let item: boolean = false;
   export let plain: boolean = false;
+  export let nofill: boolean = false;
   export let active: boolean = false;
   export let outline: boolean = false;
   export let loading: boolean = false;
@@ -58,6 +59,7 @@
     ${BRR[rounded]}
     ${plain ? 'btn-plain' : ''}
     ${outline ? 'btn-outline' : ''}
+    ${nofill ? 'btn-nofill' : ''}
     ${removePadding ? 'btn-rmp' : ''}
     ${item ? 'btn-item' : ''} 
     ${active ? 'btn-active' : ''}`);

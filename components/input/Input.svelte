@@ -31,6 +31,7 @@
   export let helper: string = '';
   export let error: string = '';
 
+  export let trigger: HTMLElement | null = null;
   const dispatch = createEventDispatcher();
   let isPassword = false;
 
@@ -66,6 +67,7 @@
       {value}
       {disabled}
       {placeholder}
+      bind:this={trigger}
       on:input={handleInput}
     />
   </div>

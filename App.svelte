@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Button from './components/button/Button.svelte';
+  import Input from './components/input/Input.svelte';
   import { Tabs } from './components/tabs';
   import { TabsRecord } from './constants/tabs.sample';
 
@@ -12,11 +14,8 @@
   class="w-screen font-sans h-screen flex justify-center items-center"
 >
   <div>
-    <Tabs
-      size="sm"
-      items={TabsRecord}
-      active={activeTab}
-      on:active-tab={handleActiveTab}
-    ></Tabs>
+    <Button variant="primary" size="sm">
+      <svelte:fragment slot="label">Hello</svelte:fragment>
+    </Button>
   </div>
 </div>
