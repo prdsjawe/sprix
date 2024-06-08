@@ -634,14 +634,8 @@
     }
   }
 
-  .dropdown {
-    @apply relative flex items-center p-0.5;
-    @apply bg-white rounded-lg min-w-[200px];
-    @apply shadow shadow-gray-900/10 border border-gray-100;
-  }
-
-  .input-group {
-    @apply flex flex-col gap-1.5 flex-1;
+  .input {
+    @apply flex flex-col gap-2 flex-1;
 
     .label {
       &.label-sm {
@@ -649,15 +643,11 @@
       }
 
       &.label-md {
-        @apply text-sm font-medium;
-      }
-
-      &.label-lg {
         @apply text-base font-medium;
       }
     }
 
-    .input {
+    .field {
       @apply border border-gray-200 relative overflow-hidden;
       @apply flex flex-1 items-center flex-grow transition-all;
 
@@ -667,32 +657,22 @@
       }
 
       &.input-sm {
-        @apply px-3 py-1.5;
-        @apply rounded-md gap-1.5;
+        @apply px-3 py-2;
+        @apply rounded-md gap-1;
         @apply text-sm;
 
         &:has(textarea) {
-          @apply p-1.5;
+          @apply p-1;
         }
       }
 
       &.input-md {
-        @apply px-3 py-1.5;
-        @apply rounded-md gap-1.5;
-        @apply text-base;
-
-        &:has(textarea) {
-          @apply p-1.5;
-        }
-      }
-
-      &.input-lg {
-        @apply px-3.5 py-2;
+        @apply px-3 py-2;
         @apply rounded-lg gap-2;
         @apply text-base;
 
         &:has(textarea) {
-          @apply p-1.5;
+          @apply p-2;
         }
       }
 
@@ -713,6 +693,12 @@
         }
       }
     }
+  }
+
+  .dropdown {
+    @apply relative flex items-center p-0.5;
+    @apply bg-white rounded-lg min-w-[200px];
+    @apply shadow shadow-gray-900/10 border border-gray-100;
   }
 
   .tabs {

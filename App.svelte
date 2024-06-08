@@ -1,6 +1,7 @@
 <script lang="ts">
   import Button from './components/button/Button.svelte';
   import { Checkbox } from './components/checkbox';
+  import { Input } from './components/input';
   import { Radio } from './components/radio';
   import { Toggle } from './components/toggle';
   import CaretDown from './icons/CaretDown.svelte';
@@ -34,10 +35,12 @@
       description="Testing Description"
     ></Toggle> -->
 
-    <Radio
+    <!-- <Radio
       title="Remember Me"
       size="md"
       description="Testing Description"
-    ></Radio>
+    ></Radio> -->
+
+    <Input label="Password" size="md" />
   </div>
 </div>

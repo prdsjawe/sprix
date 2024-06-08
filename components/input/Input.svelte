@@ -1,18 +1,16 @@
 <script lang="ts">
   import { createEventDispatcher, onMount } from 'svelte';
   import type { HTMLInputTypeAttribute } from 'svelte/elements';
-  import { trimClass } from '../../utils/common';
+  import { classnames } from '../../utils/common';
 
   const ISR: InputRecord = {
     sm: 'input-sm',
     md: 'input-md',
-    lg: 'input-lg',
   };
 
   const LSR: InputRecord = {
     sm: 'label-sm',
     md: 'label-md',
-    lg: 'label-lg',
   };
 
   export let label: string;
@@ -46,13 +44,13 @@
     dispatch('input', { value: (e.target as HTMLInputElement).value });
   };
 
-  $: labelClass = `label ${LSR[size]}`.trim().replace(/\s+/g, ' ');
-  $: inputClass = trimClass(
-    `input ${ISR[size]} ${invalid ? 'invalid' : ''} ${disabled ? 'disabled' : ''}`
+  $: labelClass = classnames(`label ${LSR[size]}`);
+  $: inputClass = classnames(
+    `field ${ISR[size]} ${invalid ? 'invalid' : ''} ${disabled ? 'disabled' : ''}`
   );
 </script>
 
-<div class="input-group">
+<div class="input">
   {#if showLabel}
     <span class={labelClass}>{label}</span>
   {/if}
