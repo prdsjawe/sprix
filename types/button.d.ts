@@ -3,8 +3,7 @@ type BtnVariant =
   | 'secondary'
   | 'success'
   | 'danger'
-  | 'warning'
-  | 'dropdown';
+  | 'warning';
 
 type BtnRounded = 'none' | 'initial' | 'full';
 

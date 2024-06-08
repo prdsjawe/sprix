@@ -10,7 +10,14 @@
     "isolatedModules": true,
     "rootDir": "."
   },
-  "include": ["**/*.ts", "**/*.d.ts", "**/*.js", "**/*.svelte", "main.ts", "vite-env.d.ts"],
+  "include": [
+    "**/*.ts",
+    "**/*.d.ts",
+    "**/*.js",
+    "**/*.svelte",
+    "main.ts",
+    "vite-env.d.ts"
+  ],
   "exclude": ["postcss.config.js", "svelte.config.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

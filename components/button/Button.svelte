@@ -1,7 +1,11 @@
 <script lang="ts">
   import type { HTMLAttributeAnchorTarget } from 'svelte/elements';
-  import { trimClass } from '../../utils/common';
-  import { createEventDispatcher } from 'svelte';
+  import { classnames } from '../../utils/common';
+  import {
+    SvelteComponent,
+    createEventDispatcher,
+    type ComponentType,
+  } from 'svelte';
 
   export let class_: string = '';
 
@@ -21,6 +25,8 @@
   export let outline: boolean = false;
   export let loading: boolean = false;
   export let disabled: boolean = false;
+  export let leftIcon: ComponentType | null = null;
+  export let rightIcon: ComponentType | null = null;
   export let showLeftIcon: boolean = false;
   export let showRightIcon: boolean = false;
   export let removePadding: boolean = false;
@@ -35,7 +41,6 @@
     success: 'btn-success',
     warning: 'btn-warning',
     primary: 'btn-primary',
-    dropdown: 'btn-dropdown',
     secondary: 'btn-secondary',
   };
 
@@ -53,7 +58,7 @@
     full: 'btn-rounded-full',
   };
 
-  $: finalClass = trimClass(`btn ${class_}
+  $: finalClass = classnames(`btn ${class_}
     ${BSR[size]}
     ${BVR[variant]}
     ${BRR[rounded]}
@@ -77,13 +82,15 @@
   >
     {#if showLeftIcon}
       <span class="left-icon">
-        <slot name="left-icon"></slot>
+        <svelte:component this={leftIcon} className="relative"
+        ></svelte:component>
       </span>
     {/if}
     <slot name="label"></slot>
     {#if showRightIcon}
       <span class="right-icon">
-        <slot name="left-icon"></slot>
+        <svelte:component this={rightIcon} className="relative"
+        ></svelte:component>
       </span>
     {/if}
   </a>
@@ -98,19 +105,19 @@
     tabindex={disabledAttribute ? -1 : tabindex}
     on:click={() => dispatch('click')}
   >
-    <div class="flex items-center">
-      {#if loading}
-        <span class="left-icon loading"></span>
-      {:else if showLeftIcon}
-        <span class="left-icon">
-          <slot name="left-icon"></slot>
-        </span>
-      {/if}
-      <slot name="label"></slot>
-    </div>
+    {#if loading}
+      <span class="left-icon loading"></span>
+    {:else if showLeftIcon}
+      <span class="left-icon">
+        <svelte:component this={leftIcon} className="relative"
+        ></svelte:component>
+      </span>
+    {/if}
+    <slot name="label"></slot>
     {#if showRightIcon}
       <span class="right-icon">
-        <slot name="right-icon"></slot>
+        <svelte:component this={rightIcon} className="relative"
+        ></svelte:component>
       </span>
     {/if}
   </button>

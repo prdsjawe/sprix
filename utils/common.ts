@@ -1,2 +1,2 @@
-export const trimClass = (str: string) =>
+export const classnames = (str: string) =>
   str.trim().replace(/\s+/g, ' ');

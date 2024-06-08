@@ -4,7 +4,7 @@
 
 @layer components {
   .btn {
-    @apply flex flex-grow items-center justify-between relative;
+    @apply flex flex-grow items-center justify-center relative;
     @apply transition-all cursor-pointer;
 
     span.label {
@@ -15,10 +15,6 @@
       @apply px-3 py-1;
       @apply rounded-md gap-1;
       @apply text-xs font-medium;
-
-      & > div {
-        @apply gap-1;
-      }
 
       &:has(span.right-icon) {
         @apply pr-2;
@@ -39,20 +35,16 @@
     }
 
     &.btn-sm {
-      @apply px-4 py-1.5;
-      @apply rounded-lg gap-1.5;
+      @apply px-4 py-1;
+      @apply rounded-lg gap-1;
       @apply text-sm font-medium;
 
-      & > div {
-        @apply gap-1.5;
-      }
-
       &:has(span.right-icon) {
-        @apply pr-2.5;
+        @apply pr-3;
       }
 
       &:has(span.left-icon) {
-        @apply pl-2.5;
+        @apply pl-3;
       }
 
       span.left-icon,
@@ -66,32 +58,71 @@
     }
 
     &.btn-md {
-      @apply px-4 py-1.5;
-      @apply rounded-lg gap-1.5;
+      @apply px-4 py-2;
+      @apply rounded-lg gap-2;
       @apply text-base font-medium;
 
-      & > div {
-        @apply gap-1.5;
+      &:has(span.right-icon) {
+        @apply pr-3;
+      }
+
+      &:has(span.left-icon) {
+        @apply pl-3;
+      }
+
+      span.left-icon,
+      span.right-icon {
+        @apply w-4 h-4;
+
+        svg {
+          @apply w-4 h-4;
+        }
       }
     }
 
     &.btn-lg {
-      @apply px-4.5 py-2;
+      @apply px-4 py-2;
       @apply rounded-lg gap-2;
-      @apply text-base font-medium;
+      @apply text-lg font-medium;
 
-      & > div {
-        @apply gap-2;
+      &:has(span.right-icon) {
+        @apply pr-3;
+      }
+
+      &:has(span.left-icon) {
+        @apply pl-3;
+      }
+
+      span.left-icon,
+      span.right-icon {
+        @apply w-4 h-4;
+
+        svg {
+          @apply w-4 h-4;
+        }
       }
     }
 
     &.btn-xl {
-      @apply px-5.5 py-2.5;
+      @apply px-5 py-3;
       @apply rounded-xl gap-2;
-      @apply text-lg font-medium;
+      @apply text-xl font-medium;
 
-      & > div {
-        @apply gap-2.5;
+      &:has(span.right-icon) {
+        @apply pr-3;
+      }
+
+      &:has(span.left-icon) {
+        @apply pl-3;
+      }
+
+      span.left-icon,
+      span.right-icon {
+        @apply w-4 h-4;
+
+        svg {
+          @apply w-4 h-4;
+        }
       }
     }
 
@@ -116,31 +147,43 @@
         @apply hover:bg-brand-600 hover:border-brand-600;
       }
 
-      &.btn-outline {
-        @apply bg-white text-brand-500;
-        @apply border border-brand-500;
-        @apply shadow-none;
-        @apply hover:text-brand-500 hover:border-brand-600;
-        @apply disabled:bg-white disabled:text-gray-300 disabled:border-gray-200 disabled:cursor-not-allowed;
-        @apply disabled:hover:bg-gray-50 disabled:hover:text-gray-400 disabled:hover:border-gray-300;
-      }
-
-      &.btn-nofill {
-        @apply bg-white text-brand-500;
-        @apply border-none shadow-none;
-        @apply hover:bg-brand-100 hover:text-brand-600;
-        @apply disabled:bg-white  disabled:text-gray-300 disabled:cursor-not-allowed;
-        @apply disabled:hover:bg-gray-50 disabled:hover:text-gray-400;
-
-        &.btn-rmp {
-          @apply p-0 hover:bg-transparent disabled:bg-transparent disabled:hover:bg-transparent;
-        }
-      }
-
       span.left-icon,
       span.right-icon {
         svg {
           @apply fill-white;
+        }
+      }
+
+      &.btn-outline {
+        @apply border border-brand-200;
+        @apply bg-white text-brand-500;
+        @apply shadow-none hover:text-brand-500 hover:bg-brand-100 hover:border-brand-200;
+        @apply disabled:bg-white disabled:text-gray-300 disabled:border-gray-200 disabled:cursor-not-allowed;
+        @apply disabled:hover:bg-gray-50 disabled:hover:text-gray-400 disabled:hover:border-gray-300;
+
+        span.left-icon,
+        span.right-icon {
+          svg {
+            @apply fill-brand-500;
+          }
+        }
+      }
+
+      &.btn-nofill {
+        @apply bg-white text-brand-500;
+        @apply border-none shadow-none hover:text-brand-500 hover:bg-brand-100;
+        @apply disabled:bg-white  disabled:text-gray-300 disabled:cursor-not-allowed;
+        @apply disabled:hover:bg-gray-50 disabled:hover:text-gray-400;
+
+        span.left-icon,
+        span.right-icon {
+          svg {
+            @apply fill-brand-500;
+          }
+        }
+
+        &.btn-rmp {
+          @apply p-0 hover:bg-transparent disabled:bg-transparent disabled:hover:bg-transparent;
         }
       }
     }
@@ -158,31 +201,44 @@
         @apply hover:bg-gray-800 hover:border-gray-800;
       }
 
+      span.left-icon,
+      span.right-icon {
+        svg {
+          @apply fill-white;
+        }
+      }
+
       &.btn-outline {
         @apply bg-white text-gray-700;
-        @apply border border-gray-200;
-        @apply shadow-none;
-        @apply hover:text-gray-700 hover:border-gray-800;
+        @apply border border-gray-200 shadow-none;
+        @apply hover:text-gray-700 hover:bg-gray-100;
         @apply disabled:bg-white disabled:text-gray-300 disabled:border-gray-200 disabled:cursor-not-allowed;
         @apply disabled:hover:bg-gray-50 disabled:hover:text-gray-400 disabled:hover:border-gray-300;
+
+        span.left-icon,
+        span.right-icon {
+          svg {
+            @apply fill-gray-700;
+          }
+        }
       }
 
       &.btn-nofill {
         @apply bg-white text-gray-700;
         @apply border border-transparent shadow-none;
-        @apply hover:bg-gray-100 hover:border-gray-100 hover:text-gray-700;
+        @apply hover:text-gray-700 hover:bg-gray-100;
         @apply disabled:bg-white  disabled:text-gray-300 disabled:cursor-not-allowed;
         @apply disabled:hover:bg-gray-50 disabled:hover:text-gray-400;
 
         &.btn-rmp {
           @apply p-0 hover:bg-transparent disabled:bg-transparent disabled:hover:bg-transparent;
         }
-      }
 
-      span.left-icon,
-      span.right-icon {
-        svg {
-          @apply fill-white;
+        span.left-icon,
+        span.right-icon {
+          svg {
+            @apply fill-gray-700;
+          }
         }
       }
     }
@@ -200,13 +256,26 @@
         @apply hover:bg-red-600 hover:border-red-600;
       }
 
+      span.left-icon,
+      span.right-icon {
+        svg {
+          @apply fill-white;
+        }
+      }
+
       &.btn-outline {
         @apply bg-white text-red-500;
-        @apply border border-red-500;
-        @apply shadow-none;
-        @apply hover:text-red-600 hover:border-red-600;
+        @apply border border-red-200 shadow-none;
+        @apply hover:bg-red-100 hover:text-red-600;
         @apply disabled:bg-white disabled:text-gray-300 disabled:border-gray-200 disabled:cursor-not-allowed;
         @apply disabled:hover:bg-gray-50 disabled:hover:text-gray-400 disabled:hover:border-gray-300;
+
+        span.left-icon,
+        span.right-icon {
+          svg {
+            @apply fill-red-500;
+          }
+        }
       }
 
       &.btn-nofill {
@@ -218,6 +287,13 @@
 
         &.btn-rmp {
           @apply p-0 hover:bg-transparent disabled:bg-transparent disabled:hover:bg-transparent;
+        }
+
+        span.left-icon,
+        span.right-icon {
+          svg {
+            @apply fill-red-500;
+          }
         }
       }
 
@@ -242,13 +318,26 @@
         @apply hover:bg-green-600 hover:border-green-600;
       }
 
+      span.left-icon,
+      span.right-icon {
+        svg {
+          @apply fill-white;
+        }
+      }
+
       &.btn-outline {
         @apply bg-white text-green-500;
-        @apply border border-green-500;
-        @apply shadow-none;
-        @apply hover:text-green-600 hover:border-green-600;
+        @apply border border-green-200 shadow-none;
+        @apply hover:text-green-600 hover:bg-green-100;
         @apply disabled:bg-white disabled:text-gray-300 disabled:border-gray-200 disabled:cursor-not-allowed;
         @apply disabled:hover:bg-gray-50 disabled:hover:text-gray-400 disabled:hover:border-gray-300;
+
+        span.left-icon,
+        span.right-icon {
+          svg {
+            @apply fill-green-500;
+          }
+        }
       }
 
       &.btn-nofill {
@@ -284,13 +373,26 @@
         @apply hover:bg-yellow-500 hover:border-yellow-500;
       }
 
+      span.left-icon,
+      span.right-icon {
+        svg {
+          @apply fill-black;
+        }
+      }
+
       &.btn-outline {
         @apply bg-white text-yellow-400;
-        @apply border border-yellow-400;
-        @apply shadow-none;
-        @apply hover:text-yellow-500 hover:border-yellow-500;
+        @apply border border-yellow-200 shadow-none;
+        @apply hover:text-yellow-500 hover:bg-yellow-100;
         @apply disabled:bg-white disabled:text-gray-300 disabled:border-gray-200 disabled:cursor-not-allowed;
         @apply disabled:hover:bg-gray-50 disabled:hover:text-gray-400 disabled:hover:border-gray-300;
+
+        span.left-icon,
+        span.right-icon {
+          svg {
+            @apply fill-yellow-400;
+          }
+        }
       }
 
       &.btn-nofill {
@@ -300,33 +402,16 @@
         @apply disabled:bg-white disabled:text-gray-300 disabled:cursor-not-allowed;
         @apply disabled:hover:bg-gray-50 disabled:hover:text-gray-400;
 
+        span.left-icon,
+        span.right-icon {
+          svg {
+            @apply fill-yellow-400;
+          }
+        }
+
         &.btn-rmp {
           @apply p-0 hover:bg-transparent disabled:bg-transparent disabled:hover:bg-transparent;
         }
-      }
-
-      span.left-icon,
-      span.right-icon {
-        svg {
-          @apply fill-black;
-        }
-      }
-    }
-
-    &.btn-dropdown {
-      @apply bg-white text-black border border-gray-200;
-      @apply shadow shadow-gray-900/10;
-      @apply hover:border-gray-400;
-
-      span.left-icon,
-      span.right-icon {
-        svg {
-          @apply fill-black;
-        }
-      }
-
-      &.btn-item {
-        @apply bg-white rounded-md shadow-none border-none hover:bg-gray-100/80;
       }
     }
   }
