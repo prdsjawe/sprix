@@ -1,13 +1,15 @@
 <script lang="ts">
   import Button from './components/button/Button.svelte';
   import { Checkbox } from './components/checkbox';
+  import { Radio } from './components/radio';
+  import { Toggle } from './components/toggle';
   import CaretDown from './icons/CaretDown.svelte';
 </script>
 
 <div
   class="w-screen font-sans h-screen flex justify-center items-center"
 >
-  <div>
+  <div class="flex w-96">
     <!-- <Button
       variant="warning"
       size="md"
@@ -20,10 +22,22 @@
       <svelte:fragment slot="label">Hello</svelte:fragment>
     </Button> -->
 
-    <Checkbox
+    <!-- <Checkbox
+      title="Remember Me"
+      size="sm"
+      description="Testing Description"
+    ></Checkbox> -->
+
+    <!-- <Toggle
       title="Remember Me"
       size="md"
       description="Testing Description"
-    ></Checkbox>
+    ></Toggle> -->
+
+    <Radio
+      title="Remember Me"
+      size="md"
+      description="Testing Description"
+    ></Radio>
   </div>
 </div>

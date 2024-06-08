@@ -35,7 +35,7 @@
   };
 
   $: checkboxGroup = classnames(
-    `checkbox flex flex-col ${TGSR[size]}`
+    `checkbox flex flex-col w-full ${size === 'md' ? 'gap-1' : ''} ${TGSR[size]}`
   );
 
   $: checkbox = classnames(

@@ -1,4 +1,4 @@
-type ToggleSize = 'md' | 'lg';
+type ToggleSize = 'sm' | 'md';
 
 type TogglePosition = 'left' | 'right';
 

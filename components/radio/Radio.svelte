@@ -1,17 +1,17 @@
 <script lang="ts">
   import { createEventDispatcher, onMount } from 'svelte';
-  import { trimClass } from '../../utils/common';
+  import { classnames } from '../../utils/common';
 
   const dispatch = createEventDispatcher();
 
   const TGSR: RadioRecord = {
+    sm: 'radio-sm',
     md: 'radio-md',
-    lg: 'radio-lg',
   };
 
   const TSR: RadioRecord = {
-    md: 'radio-trigger-md',
-    lg: 'radio-trigger-lg',
+    sm: 'trigger-sm',
+    md: 'trigger-md',
   };
 
   export let key: number = 0;
@@ -34,20 +34,12 @@
     dispatch('check', { check });
   };
 
-  $: radio = trimClass(`radio ${TGSR[size]}`);
+  $: radio = classnames(
+    `radio flex flex-col w-full ${size === 'md' ? 'gap-1' : ''} ${TGSR[size]}`
+  );
 
-  $: trigger = trimClass(
+  $: trigger = classnames(
     `trigger ${TSR[size]} ${check ? 'check' : ''}`
-  );
-
-  $: titleClass = trimClass(
-    `${size == 'md' ? 'text-sm' : 'text-base'} font-medium`
-  );
-
-  $: descriptionClass = trimClass(
-    `${
-      size == 'md' ? 'text-sm' : 'text-base'
-    } font-medium text-gray-400`
   );
 </script>
 
@@ -55,7 +47,7 @@
   <div class="flex-1 flex gap-4 w-full items-center">
     <div class={position === 'left' ? 'order-1' : 'order-2'}>
       <button
-        id="radio-trigger-{key}"
+        id="radio-{key}"
         type="button"
         class={trigger}
         on:click={handleClick}
@@ -67,12 +59,12 @@
     </div>
 
     <label
-      for="radio-trigger-{key}"
+      for="radio-{key}"
       class="select-none cursor-pointer flex-1 {position === 'left'
         ? 'order-2'
         : 'order-1'}"
     >
-      <span class={titleClass}>{title}</span>
+      <span class="title">{title}</span>
     </label>
   </div>
 
@@ -84,7 +76,7 @@
       <div
         class="flex-1 {position === 'left' ? 'order-2' : 'order-1'}"
       >
-        <span class={descriptionClass}>
+        <span class="description">
           {description}
         </span>
       </div>

@@ -427,7 +427,7 @@
       }
 
       .description {
-        @apply text-sm font-medium text-gray-500;
+        @apply text-sm text-gray-500;
       }
     }
 
@@ -441,14 +441,14 @@
       }
 
       .description {
-        @apply text-base font-medium text-gray-500;
+        @apply text-base text-gray-500;
       }
     }
 
     .trigger {
       @apply flex flex-1 relative;
-      @apply transition-all duration-300 cursor-pointer;
       @apply border border-gray-200 bg-gray-50;
+      @apply transition-all duration-300 cursor-pointer;
 
       &.check {
         @apply bg-brand-500 border-brand-600 shadow-btn shadow-white/20;
@@ -475,6 +475,160 @@
 
         svg {
           @apply w-3.5 h-3.5 fill-white;
+        }
+      }
+    }
+  }
+
+  .toggle {
+    &.toggle-sm {
+      .sr-hidden {
+        @apply w-9 p-0.5 opacity-0;
+      }
+
+      .title {
+        @apply text-sm font-medium;
+      }
+
+      .description {
+        @apply text-sm text-gray-500;
+      }
+    }
+
+    &.toggle-md {
+      .sr-hidden {
+        @apply w-11 p-0.5 opacity-0;
+      }
+
+      .title {
+        @apply text-base font-medium;
+      }
+
+      .description {
+        @apply text-base text-gray-500;
+      }
+    }
+
+    .trigger {
+      @apply flex flex-1 relative;
+      @apply transition-all duration-300 cursor-pointer;
+      @apply border border-gray-200 bg-gray-100 rounded-full;
+
+      &.check {
+        @apply bg-brand-500 border-brand-600;
+      }
+
+      span {
+        @apply bg-white rounded-full shadow;
+        @apply transition-all duration-300;
+        @apply border border-gray-200;
+
+        &.check {
+          @apply border border-brand-500;
+        }
+      }
+
+      &.trigger-sm {
+        @apply w-9 p-0.5;
+
+        &:focus {
+          @apply ring-[3px] ring-gray-300/30;
+        }
+
+        &.check:focus {
+          @apply ring-[3px] ring-brand-500/30;
+        }
+
+        span {
+          @apply w-4 h-4;
+
+          &.check {
+            @apply translate-x-[calc(100%-1px)];
+          }
+        }
+      }
+
+      &.trigger-md {
+        @apply w-11 p-0.5;
+
+        &:focus {
+          @apply ring-4 ring-gray-300/30;
+        }
+
+        &.check:focus {
+          @apply ring-4 ring-brand-500/30;
+        }
+
+        span {
+          @apply w-5 h-5;
+
+          &.check {
+            @apply translate-x-[calc(100%-2px)];
+          }
+        }
+      }
+    }
+  }
+
+  .radio {
+    &.radio-sm {
+      .sr-hidden {
+        @apply w-4 h-4 opacity-0;
+      }
+
+      .title {
+        @apply text-sm font-medium;
+      }
+
+      .description {
+        @apply text-sm text-gray-500;
+      }
+    }
+
+    &.radio-md {
+      .sr-hidden {
+        @apply w-5 h-5 opacity-0;
+      }
+
+      .title {
+        @apply text-base font-medium;
+      }
+
+      .description {
+        @apply text-base text-gray-500;
+      }
+    }
+
+    .trigger {
+      @apply flex flex-1 relative;
+      @apply transition-all duration-300 cursor-pointer;
+      @apply border border-gray-200 bg-gray-50 rounded-full;
+
+      &.check {
+        @apply bg-brand-500 border-brand-600;
+      }
+
+      &:focus {
+        @apply ring-[3px] ring-gray-300/30;
+      }
+
+      &.check:focus {
+        @apply ring-[3px] ring-brand-500/30;
+      }
+
+      &.trigger-sm {
+        @apply w-4 h-4 p-0.5 relative;
+
+        span {
+          @apply w-1.5 h-1.5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full;
+        }
+      }
+
+      &.trigger-md {
+        @apply w-5 h-5 relative;
+
+        span {
+          @apply w-2 h-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full;
         }
       }
     }
@@ -556,125 +710,6 @@
         input,
         textarea {
           @apply select-none cursor-not-allowed bg-gray-50;
-        }
-      }
-    }
-  }
-
-  .toggle {
-    @apply flex flex-col;
-
-    .toggle-md {
-      .sr-hidden {
-        @apply w-9 p-0.5 opacity-0;
-      }
-    }
-
-    .toggle-lg {
-      .sr-hidden {
-        @apply w-11 p-0.5 opacity-0;
-      }
-    }
-
-    .trigger {
-      @apply flex flex-1 relative;
-      @apply transition-all duration-300 cursor-pointer;
-      @apply border border-gray-200 bg-gray-100 rounded-full;
-
-      &.check {
-        @apply bg-brand-500 border-brand-600;
-      }
-
-      span {
-        @apply bg-white rounded-full shadow;
-        @apply transition-all duration-300;
-        @apply border border-gray-200;
-
-        &.check {
-          @apply border border-brand-500;
-        }
-      }
-
-      &.toggle-trigger-md {
-        @apply w-9 p-0.5;
-
-        &:focus {
-          @apply ring-[3px] ring-gray-300/30;
-        }
-
-        &.check:focus {
-          @apply ring-[3px] ring-brand-500/30;
-        }
-
-        span {
-          @apply w-4 h-4;
-
-          &.check {
-            @apply translate-x-[calc(100%-1px)];
-          }
-        }
-      }
-
-      &.toggle-trigger-lg {
-        @apply w-11 p-0.5;
-
-        &:focus {
-          @apply ring-4 ring-gray-300/30;
-        }
-
-        &.check:focus {
-          @apply ring-4 ring-brand-500/30;
-        }
-
-        span {
-          @apply w-5 h-5;
-
-          &.check {
-            @apply translate-x-[calc(100%-2px)];
-          }
-        }
-      }
-    }
-  }
-
-  .radio {
-    @apply flex flex-col;
-
-    .radio-md {
-      .sr-hidden {
-        @apply w-4 h-4 opacity-0;
-      }
-    }
-
-    .radio-lg {
-      .sr-hidden {
-        @apply w-4 h-4 opacity-0;
-      }
-    }
-
-    .trigger {
-      @apply flex flex-1 relative;
-      @apply transition-all duration-300 cursor-pointer;
-      @apply border border-gray-200 bg-gray-50 rounded-full;
-
-      &.check {
-        @apply bg-brand-500 border-brand-600;
-      }
-
-      &.radio-trigger-md,
-      &.radio-trigger-lg {
-        @apply w-4 h-4 p-0.5 relative;
-
-        &:focus {
-          @apply ring-[3px] ring-gray-300/30;
-        }
-
-        &.check:focus {
-          @apply ring-[3px] ring-brand-500/30;
-        }
-
-        span {
-          @apply w-1.5 h-1.5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full;
         }
       }
     }

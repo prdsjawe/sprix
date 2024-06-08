@@ -1,4 +1,4 @@
-type RadioSize = 'md' | 'lg';
+type RadioSize = 'sm' | 'md';
 
 type RadioPosition = 'left' | 'right';
 
