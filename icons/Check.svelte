@@ -1,13 +1,9 @@
 <script lang="ts">
-  let width: number = 24;
-  let height: number = 24;
-  let class_: string = '';
+  let className: string = '';
 </script>
 
 <svg
-  {width}
-  {height}
-  class={class_}
+  class={className}
   viewBox="0 0 256 256"
   xmlns="http://www.w3.org/2000/svg"
 >

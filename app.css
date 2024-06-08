@@ -416,6 +416,70 @@
     }
   }
 
+  .checkbox {
+    &.checkbox-sm {
+      .sr-hidden {
+        @apply w-4 h-4 opacity-0;
+      }
+
+      .title {
+        @apply text-sm font-medium;
+      }
+
+      .description {
+        @apply text-sm font-medium text-gray-500;
+      }
+    }
+
+    &.checkbox-md {
+      .sr-hidden {
+        @apply w-5 h-5 opacity-0;
+      }
+
+      .title {
+        @apply text-base font-medium;
+      }
+
+      .description {
+        @apply text-base font-medium text-gray-500;
+      }
+    }
+
+    .trigger {
+      @apply flex flex-1 relative;
+      @apply transition-all duration-300 cursor-pointer;
+      @apply border border-gray-200 bg-gray-50;
+
+      &.check {
+        @apply bg-brand-500 border-brand-600 shadow-btn shadow-white/20;
+      }
+
+      &:focus {
+        @apply ring-[3px] ring-gray-300/30;
+      }
+
+      &.check:focus {
+        @apply ring-[3px] ring-brand-500/30;
+      }
+
+      &.trigger-sm {
+        @apply w-4 h-4 p-0.5 flex items-center justify-center rounded;
+
+        svg {
+          @apply w-3 h-3 fill-white;
+        }
+      }
+
+      &.trigger-md {
+        @apply w-5 h-5 p-0.5 flex items-center justify-center rounded-md;
+
+        svg {
+          @apply w-3.5 h-3.5 fill-white;
+        }
+      }
+    }
+  }
+
   .dropdown {
     @apply relative flex items-center p-0.5;
     @apply bg-white rounded-lg min-w-[200px];
@@ -568,49 +632,6 @@
           &.check {
             @apply translate-x-[calc(100%-2px)];
           }
-        }
-      }
-    }
-  }
-
-  .checkbox {
-    @apply flex flex-col;
-
-    .checkbox-md {
-      .sr-hidden {
-        @apply w-4 h-4 opacity-0;
-      }
-    }
-
-    .checkbox-lg {
-      .sr-hidden {
-        @apply w-4 h-4 opacity-0;
-      }
-    }
-
-    .trigger {
-      @apply flex flex-1 relative;
-      @apply transition-all duration-300 cursor-pointer;
-      @apply border border-gray-200 bg-gray-50 rounded-md;
-
-      &.check {
-        @apply bg-brand-500 border-brand-600;
-      }
-
-      &.checkbox-trigger-md,
-      &.checkbox-trigger-lg {
-        @apply w-4 h-4 p-0.5 flex items-center justify-center;
-
-        &:focus {
-          @apply ring-[3px] ring-gray-300/30;
-        }
-
-        &.check:focus {
-          @apply ring-[3px] ring-brand-500/30;
-        }
-
-        svg {
-          @apply w-3 h-3 fill-white;
         }
       }
     }

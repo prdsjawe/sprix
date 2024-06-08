@@ -1,5 +1,6 @@
 <script lang="ts">
   import Button from './components/button/Button.svelte';
+  import { Checkbox } from './components/checkbox';
   import CaretDown from './icons/CaretDown.svelte';
 </script>
 
@@ -7,7 +8,7 @@
   class="w-screen font-sans h-screen flex justify-center items-center"
 >
   <div>
-    <Button
+    <!-- <Button
       variant="warning"
       size="md"
       nofill
@@ -17,6 +18,12 @@
       rightIcon={CaretDown}
     >
       <svelte:fragment slot="label">Hello</svelte:fragment>
-    </Button>
+    </Button> -->
+
+    <Checkbox
+      title="Remember Me"
+      size="md"
+      description="Testing Description"
+    ></Checkbox>
   </div>
 </div>

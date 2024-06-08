@@ -1,4 +1,4 @@
-type CheckboxSize = 'md' | 'lg';
+type CheckboxSize = 'sm' | 'md';
 
 type CheckboxPosition = 'left' | 'right';
 
