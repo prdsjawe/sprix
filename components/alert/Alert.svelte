@@ -1,22 +1,30 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
+  import { fade, scale } from 'svelte/transition';
   import Button from '../button/Button.svelte';
+  import { quintOut } from 'svelte/easing';
 
   const dispatch = createEventDispatcher();
 
   export let show: boolean = true;
-  export let role: BtnVariant = 'danger';
   export let confirmLabel: string = 'Confirm';
 </script>
 
 {#if show}
   <div
     class="fixed w-screen h-screen overflow-hidden top-0 left-0 p-8 z-[999] bg-gray-900/20"
+    transition:fade={{ duration: 100 }}
   >
     <div class="grid grid-rows-[1fr_auto_3fr] flex-grow h-full">
       <div class="flex items-center justify-center row-start-2">
         <div
           class="p-6 h-full flex flex-col gap-4 w-[500px] bg-white rounded-2xl border-gray-600 shadow"
+          transition:scale={{
+            duration: 300,
+            opacity: 0.5,
+            start: 0.5,
+            easing: quintOut,
+          }}
         >
           <div class="flex-grow flex flex-col gap-2">
             <h2 class="font-semibold text-sm/6">
@@ -30,6 +38,7 @@
                 <Button
                   size="sm"
                   variant="secondary"
+                  nofill
                   on:click={() => dispatch('close')}
                   plain
                 >
@@ -41,7 +50,7 @@
               <div>
                 <Button
                   size="sm"
-                  variant={role}
+                  variant="primary"
                   on:click={() => dispatch('confirm')}
                 >
                   <svelte:fragment slot="label">

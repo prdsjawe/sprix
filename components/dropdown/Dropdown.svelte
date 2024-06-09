@@ -5,6 +5,7 @@
   import { CaretUpDown } from '../../icons';
   import createTippy from '../../utils/tippy';
   import DropdownItems from './DropdownItems.svelte';
+  import CaretDown from '../../icons/CaretDown.svelte';
 
   export let label: string = '';
   export let size: DropdownSize = 'sm';
@@ -56,8 +57,11 @@
   outline
   grow
   showRightIcon={true}
-  rightIcon={CaretUpDown}
-  className="{triggerClass} !shadow-sm !shadow-gray-700/10"
+  rightIcon={CaretDown}
+  className="{triggerClass} !shadow-sm !shadow-gray-700/10 {variant ===
+  'listbox'
+    ? 'min-w-40'
+    : ''}"
 >
   <svelte:fragment slot="label">
     {placeholderLabel}
