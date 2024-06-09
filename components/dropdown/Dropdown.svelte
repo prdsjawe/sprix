@@ -1,12 +1,14 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { Button } from '../button';
-  import createTippy from '../../utils/tippy';
   import type { Instance } from 'tippy.js';
-  import DropdownItems from './DropdownItems.svelte';
   import { CaretUpDown } from '../../icons';
+  import createTippy from '../../utils/tippy';
+  import DropdownItems from './DropdownItems.svelte';
 
   export let label: string = '';
+  export let size: DropdownSize = 'sm';
+  export let variant: DropdownVariant = 'dropdown';
   export let triggerClass: string = '';
   export let contentClass: string = '';
   export let items: DropdownItem[] = [];
@@ -15,29 +17,57 @@
   let trigger: HTMLElement;
   let instance: Instance | null = null;
 
+  let placeholderLabel = label;
+
   onMount(() => {
-    instance = createTippy(trigger, content);
+    instance = createTippy(trigger, content, {
+      onShow() {
+        const width = trigger.offsetWidth;
+        content.style.width = `${width}px`;
+      },
+    });
 
     return () => {
       if (instance) instance.destroy();
     };
   });
+
+  const handleSelectItem = (e: CustomEvent) => {
+    const item = e.detail.item as DropdownItem;
+
+    if (instance) {
+      instance.hide();
+    }
+
+    if (variant !== 'dropdown') {
+      placeholderLabel = item.label;
+    }
+
+    if (!!item) {
+      item.callback();
+    }
+  };
 </script>
 
 <Button
-  size="sm"
+  {size}
   bind:trigger
   variant="secondary"
+  outline
+  grow
   showRightIcon={true}
-  class_={triggerClass}
+  rightIcon={CaretUpDown}
+  className="{triggerClass} !shadow-sm !shadow-gray-700/10"
 >
   <svelte:fragment slot="label">
-    {label}
-  </svelte:fragment>
-  <svelte:fragment slot="right-icon">
-    <CaretUpDown></CaretUpDown>
+    {placeholderLabel}
   </svelte:fragment>
 </Button>
 
-<DropdownItems {items} bind:content class_={contentClass}
+<DropdownItems
+  {items}
+  {size}
+  bind:content
+  className={contentClass}
+  on:select-item={handleSelectItem}
 ></DropdownItems>

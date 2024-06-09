@@ -1,9 +1,11 @@
 <script lang="ts">
   import Button from './components/button/Button.svelte';
   import { Checkbox } from './components/checkbox';
+  import { Dropdown } from './components/dropdown';
   import { Input } from './components/input';
   import { Radio } from './components/radio';
   import { Toggle } from './components/toggle';
+  import { DropdownRecordSample } from './constants/dropdown.sample';
   import CaretDown from './icons/CaretDown.svelte';
 </script>
 
@@ -41,6 +43,13 @@
       description="Testing Description"
     ></Radio> -->
 
-    <Input label="Password" size="md" />
+    <!-- <Input label="Password" size="md" /> -->
+
+    <Dropdown
+      label="Hello"
+      size="md"
+      items={DropdownRecordSample}
+      variant="listbox"
+    ></Dropdown>
   </div>
 </div>

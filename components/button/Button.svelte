@@ -7,7 +7,7 @@
     type ComponentType,
   } from 'svelte';
 
-  export let class_: string = '';
+  export let className: string = '';
 
   export let href: string = '#';
   export let link: boolean = false;
@@ -18,7 +18,7 @@
   export let variant: BtnVariant = 'primary';
   export let rounded: BtnRounded = 'initial';
 
-  export let item: boolean = false;
+  export let grow: boolean = false;
   export let plain: boolean = false;
   export let nofill: boolean = false;
   export let active: boolean = false;
@@ -58,7 +58,7 @@
     full: 'btn-rounded-full',
   };
 
-  $: finalClass = classnames(`btn ${class_}
+  $: finalClass = classnames(`btn
     ${BSR[size]}
     ${BVR[variant]}
     ${BRR[rounded]}
@@ -66,8 +66,8 @@
     ${outline ? 'btn-outline' : ''}
     ${nofill ? 'btn-nofill' : ''}
     ${removePadding ? 'btn-rmp' : ''}
-    ${item ? 'btn-item' : ''} 
-    ${active ? 'btn-active' : ''}`);
+    ${active ? 'btn-active' : ''}
+     ${className}`);
 
   $: disabledAttribute = disabled || loading;
 </script>
@@ -86,7 +86,11 @@
         ></svelte:component>
       </span>
     {/if}
-    <slot name="label"></slot>
+    {#if $$slots.label}
+      <span class={grow ? 'flex-grow text-left' : ''}>
+        <slot name="label"></slot>
+      </span>
+    {/if}
     {#if showRightIcon}
       <span class="right-icon">
         <svelte:component this={rightIcon} className="relative"
@@ -113,7 +117,11 @@
         ></svelte:component>
       </span>
     {/if}
-    <slot name="label"></slot>
+    {#if $$slots.label}
+      <span class={grow ? 'flex-grow text-left' : ''}>
+        <slot name="label"></slot>
+      </span>
+    {/if}
     {#if showRightIcon}
       <span class="right-icon">
         <svelte:component this={rightIcon} className="relative"
