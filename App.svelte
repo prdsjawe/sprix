@@ -1,8 +1,10 @@
 <script lang="ts">
   import { Alert } from './components/alert';
-  import Button from './components/button/Button.svelte';
+  import { Badge } from './components/badge';
+  import { Button } from './components/button';
   import { Checkbox } from './components/checkbox';
   import { Dialog } from './components/dialog';
+  import { Divider } from './components/divider';
   import { Dropdown } from './components/dropdown';
   import { Input } from './components/input';
   import { Radio } from './components/radio';
@@ -19,12 +21,26 @@
 <div
   class="w-screen font-sans h-screen flex justify-center items-center"
 >
-  <div class="flex">
-    <Button variant="primary" size="md" on:click={handleClick}>
-      <svelte:fragment slot="label">Hello</svelte:fragment>
-    </Button>
+  <div class="flex flex-col gap-12">
+    <h1 class="text-5xl font-bold">Hello</h1>
+    <!-- <div>
+      <Button variant="primary" size="md" on:click={handleClick}>
+        <svelte:fragment slot="label">Hello</svelte:fragment>
+      </Button>
+    </div>
 
-    <Dialog {show} on:close={() => (show = false)}></Dialog>
+    <Divider />
+
+    <Dialog {show} on:close={() => (show = false)}></Dialog> -->
+    <div class="flex">
+      <Badge
+        label="Hello"
+        size="sm"
+        type="base"
+        variant="primary"
+        determiner
+      />
+    </div>
 
     <!-- <Alert {show} on:close={() => (show = false)}></Alert> -->
 

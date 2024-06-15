@@ -71,3 +71,20 @@ interface TabItem {
   notification: number | null;
   callback: () => any;
 }
+
+type BadgeVariant =
+  | 'primary'
+  | 'secondary'
+  | 'warning'
+  | 'success'
+  | 'error';
+
+type BadgeType = 'base' | 'pill' | 'outline' | 'modern';
+
+type BadgeSize = 'sm' | 'md' | 'lg';
+
+type BadgeVariantRecord = Record<BadgeVariant, string>;
+
+type BadgeSizeRecord = Record<BadgeSize, string>;
+
+type BadgeTypeRecord = Record<BadgeType, string>;
