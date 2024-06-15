@@ -35,12 +35,12 @@
   };
 
   $: checkboxGroup = classnames(
-    `checkbox flex flex-col w-full ${size === 'md' ? 'gap-1' : ''} ${TGSR[size]}`
+    'checkbox flex flex-col w-full',
+    size === 'md' && 'gap-1',
+    TGSR[size]
   );
 
-  $: checkbox = classnames(
-    `trigger ${TSR[size]} ${check ? 'check' : ''}`
-  );
+  $: checkbox = classnames('trigger', TSR[size], check && 'check');
 </script>
 
 <div class={checkboxGroup}>

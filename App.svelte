@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Alert } from './components/alert';
+  import Avatar from './components/avatar/Avatar.svelte';
   import { Badge } from './components/badge';
   import { Button } from './components/button';
   import { Checkbox } from './components/checkbox';
@@ -23,15 +24,19 @@
 >
   <div class="flex flex-col gap-12">
     <h1 class="text-5xl font-bold">Hello</h1>
-    <!-- <div>
+    <div>
       <Button variant="primary" size="md" on:click={handleClick}>
         <svelte:fragment slot="label">Hello</svelte:fragment>
       </Button>
     </div>
 
+    <div>
+      <Avatar size="md"></Avatar>
+    </div>
+
     <Divider />
 
-    <Dialog {show} on:close={() => (show = false)}></Dialog> -->
+    <!-- <Dialog {show} on:close={() => (show = false)}></Dialog>  -->
     <div class="flex">
       <Badge
         label="Hello"

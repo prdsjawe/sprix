@@ -58,16 +58,18 @@
     full: 'btn-rounded-full',
   };
 
-  $: finalClass = classnames(`btn
-    ${BSR[size]}
-    ${BVR[variant]}
-    ${BRR[rounded]}
-    ${plain ? 'btn-plain' : ''}
-    ${outline ? 'btn-outline' : ''}
-    ${nofill ? 'btn-nofill' : ''}
-    ${removePadding ? 'btn-rmp' : ''}
-    ${active ? 'btn-active' : ''}
-     ${className}`);
+  $: finalClass = classnames(
+    'btn',
+    BSR[size],
+    BVR[variant],
+    BRR[rounded],
+    plain && 'btn-plain',
+    outline && 'btn-outline',
+    nofill && 'btn-nofill',
+    removePadding && 'btn-rmp',
+    active && 'btn-active',
+    className
+  );
 
   $: disabledAttribute = disabled || loading;
 </script>

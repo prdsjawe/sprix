@@ -27,8 +27,12 @@
   export let type: BadgeType = 'base';
   export let determiner: boolean = false;
 
-  let badge = classnames(
-    `badge ${BSR[size]} ${BVR[variant]} ${BTR[type]} ${determiner && type === 'modern' ? 'determiner' : ''}`
+  const badge = classnames(
+    'badge',
+    BSR[size],
+    BVR[variant],
+    BTR[type],
+    determiner && type === 'modern' && 'determiner'
   );
 </script>
 

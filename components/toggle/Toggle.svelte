@@ -33,12 +33,12 @@
   };
 
   $: toggle = classnames(
-    `toggle flex flex-col w-full ${size === 'md' ? 'gap-1' : ''}  ${TGSR[size]}`
+    'toggle flex flex-col w-full',
+    size === 'md' && 'gap-1',
+    TGSR[size]
   );
 
-  $: trigger = classnames(
-    `trigger ${TSR[size]} ${check ? 'check' : ''}`
-  );
+  $: trigger = classnames('trigger', TSR[size], check && 'check');
 </script>
 
 <div class={toggle}>

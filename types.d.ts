@@ -88,3 +88,7 @@ type BadgeVariantRecord = Record<BadgeVariant, string>;
 type BadgeSizeRecord = Record<BadgeSize, string>;
 
 type BadgeTypeRecord = Record<BadgeType, string>;
+
+type AvatarSize = 'sm' | 'md' | 'lg';
+
+type AvatarSizeRecord = Record<AvatarSize, string>;

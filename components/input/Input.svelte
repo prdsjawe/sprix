@@ -44,9 +44,13 @@
     dispatch('input', { value: (e.target as HTMLInputElement).value });
   };
 
-  $: labelClass = classnames(`label ${LSR[size]}`);
+  $: labelClass = classnames('label', LSR[size]);
+
   $: inputClass = classnames(
-    `field ${ISR[size]} ${invalid ? 'invalid' : ''} ${disabled ? 'disabled' : ''}`
+    'field',
+    ISR[size],
+    invalid && 'invalid',
+    disabled && 'disabled'
   );
 </script>
 
