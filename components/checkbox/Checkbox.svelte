@@ -1,7 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher, onMount } from 'svelte';
   import { classnames } from '../../utils/common';
-  import { Check } from '../../icons';
+  import { Icon } from '../icon';
 
   const dispatch = createEventDispatcher();
   const TSR: CheckboxRecord = {
@@ -54,7 +54,7 @@
       >
         <span>
           {#if check}
-            <Check></Check>
+            <Icon name="Check" />
           {/if}
         </span>
       </button>

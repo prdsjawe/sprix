@@ -41,16 +41,16 @@
     }
 
     &.btn-sm {
-      @apply px-4 py-1;
+      @apply px-3 py-1;
       @apply rounded-lg gap-1;
       @apply text-sm font-medium;
 
       &:has(span.right-icon) {
-        @apply pr-3;
+        @apply pr-2;
       }
 
       &:has(span.left-icon) {
-        @apply pl-3;
+        @apply pl-2;
       }
 
       span.left-icon,

@@ -1,11 +1,13 @@
 <script lang="ts">
-  import type { HTMLAttributeAnchorTarget } from 'svelte/elements';
-  import { classnames } from '../../utils/common';
   import {
     SvelteComponent,
     createEventDispatcher,
     type ComponentType,
   } from 'svelte';
+  import type { IconName } from '../../icons';
+  import { classnames } from '../../utils/common';
+  import type { HTMLAttributeAnchorTarget } from 'svelte/elements';
+  import { Icon } from '../icon';
 
   export let className: string = '';
 
@@ -25,8 +27,8 @@
   export let outline: boolean = false;
   export let loading: boolean = false;
   export let disabled: boolean = false;
-  export let leftIcon: ComponentType | null = null;
-  export let rightIcon: ComponentType | null = null;
+  export let leftIcon: IconName = '';
+  export let rightIcon: IconName = '';
   export let showLeftIcon: boolean = false;
   export let showRightIcon: boolean = false;
   export let removePadding: boolean = false;
@@ -84,8 +86,7 @@
   >
     {#if showLeftIcon}
       <span class="left-icon">
-        <svelte:component this={leftIcon} className="relative"
-        ></svelte:component>
+        <Icon name={leftIcon} className="relative" />
       </span>
     {/if}
     {#if $$slots.label}
@@ -95,8 +96,7 @@
     {/if}
     {#if showRightIcon}
       <span class="right-icon">
-        <svelte:component this={rightIcon} className="relative"
-        ></svelte:component>
+        <Icon name={rightIcon} className="relative" />
       </span>
     {/if}
   </a>
@@ -115,8 +115,7 @@
       <span class="left-icon loading"></span>
     {:else if showLeftIcon}
       <span class="left-icon">
-        <svelte:component this={leftIcon} className="relative"
-        ></svelte:component>
+        <Icon name={leftIcon} className="relative" />
       </span>
     {/if}
     {#if $$slots.label}
@@ -126,8 +125,7 @@
     {/if}
     {#if showRightIcon}
       <span class="right-icon">
-        <svelte:component this={rightIcon} className="relative"
-        ></svelte:component>
+        <Icon name={rightIcon} className="relative" />
       </span>
     {/if}
   </button>
