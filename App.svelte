@@ -1,6 +1,9 @@
 <script lang="ts">
   import { Button } from './components/button';
   import { Checkbox } from './components/checkbox';
+  import { Dialog } from './components/dialog';
+  import { SlideOver } from './components/slide-over';
+  import { H1, H2, H3 } from './components/text';
   import CaretDown from './icons/CaretDown.svelte';
   let show = false;
   const handleClick = () => {
@@ -12,9 +15,10 @@
   class="w-screen font-sans h-screen flex justify-center items-center"
 >
   <div class="flex flex-col gap-12">
-    <h1 class="text-5xl font-bold">Hello</h1>
+    <H1>Hello</H1>
     <div>
-      <Checkbox />
+      <Button on:click={handleClick}></Button>
+      <SlideOver {show} on:close={() => (show = false)}></SlideOver>
     </div>
   </div>
 </div>
