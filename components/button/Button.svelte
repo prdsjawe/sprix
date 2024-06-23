@@ -15,7 +15,7 @@
   export let link: boolean = false;
   export let target: HTMLAttributeAnchorTarget = '';
 
-  export let size: BtnSize = 'lg';
+  export let size: BtnSize = 'md';
   export let type: BtnType = 'button';
   export let variant: BtnVariant = 'primary';
   export let rounded: BtnRounded = 'initial';
