@@ -58,7 +58,7 @@ type ToggleRecord = Record<ToggleSize, string>;
 //TABS
 type TabsVariant = 'underline' | 'button' | 'border';
 
-type TabsSize = 'sm' | 'md';
+type TabsSize = 'sm' | 'md' | 'lg';
 
 type TabsSizeRecord = Record<TabsSize, string>;
 

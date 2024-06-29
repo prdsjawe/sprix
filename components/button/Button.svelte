@@ -15,6 +15,7 @@
   export let link: boolean = false;
   export let target: HTMLAttributeAnchorTarget = '';
 
+  export let id: string = '';
   export let size: BtnSize = 'md';
   export let type: BtnType = 'button';
   export let variant: BtnVariant = 'primary';
@@ -74,10 +75,15 @@
   );
 
   $: disabledAttribute = disabled || loading;
+
+  const handleClick = (event: MouseEvent) => {
+    dispatch('click', { event });
+  };
 </script>
 
 {#if link}
   <a
+    {id}
     {href}
     {target}
     class={finalClass}
@@ -102,6 +108,7 @@
   </a>
 {:else}
   <button
+    {id}
     {type}
     class={finalClass}
     bind:this={trigger}
@@ -109,7 +116,7 @@
     on:keydown|preventDefault={e =>
       ['Enter', 'Space'].includes(e.key) && e.currentTarget.click()}
     tabindex={disabledAttribute ? -1 : tabindex}
-    on:click={() => dispatch('click')}
+    on:click={handleClick}
   >
     {#if loading}
       <span class="left-icon loading"></span>

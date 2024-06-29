@@ -3,7 +3,7 @@
 
   export let soft: boolean = false;
 
-  let divider = classnames(
+  $: divider = classnames(
     'border-t',
     soft ? 'border-gray-900/5' : 'border-gray-900/10'
   );

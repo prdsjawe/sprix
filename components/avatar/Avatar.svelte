@@ -12,7 +12,7 @@
     lg: 'avatar-lg',
   };
 
-  let avatar = classnames('avatar', ASR[size]);
+  $: avatar = classnames('avatar', ASR[size]);
 </script>
 
 <div class={avatar} bind:this={trigger}>

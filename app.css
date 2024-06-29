@@ -6,6 +6,30 @@
   body {
     @apply relative bg-gray-50 text-gray-700;
   }
+
+  h1 {
+    @apply text-5xl font-extrabold;
+  }
+
+  h2 {
+    @apply text-4xl font-bold;
+  }
+
+  h3 {
+    @apply text-3xl font-bold;
+  }
+
+  h4 {
+    @apply text-2xl font-bold;
+  }
+
+  h5 {
+    @apply text-xl font-bold;
+  }
+
+  h6 {
+    @apply text-lg font-bold;
+  }
 }
 
 @layer components {
@@ -162,9 +186,9 @@
 
       &.btn-outline {
         @apply border border-brand-200;
-        @apply bg-white text-brand-500;
+        @apply bg-transparent text-brand-500;
         @apply shadow-none hover:text-brand-500 hover:bg-brand-100 hover:border-brand-200;
-        @apply disabled:bg-white disabled:text-gray-300 disabled:border-gray-200 disabled:cursor-not-allowed;
+        @apply disabled:bg-transparent disabled:text-gray-300 disabled:border-gray-200 disabled:cursor-not-allowed;
         @apply disabled:hover:bg-gray-50 disabled:hover:text-gray-400 disabled:hover:border-gray-300;
 
         span.left-icon,
@@ -176,9 +200,9 @@
       }
 
       &.btn-nofill {
-        @apply bg-white text-brand-500;
+        @apply bg-transparent text-brand-500;
         @apply border-none shadow-none hover:text-brand-500 hover:bg-brand-100 hover:border-brand-100;
-        @apply disabled:bg-white  disabled:text-gray-300 disabled:cursor-not-allowed;
+        @apply disabled:bg-transparent disabled:text-gray-300 disabled:cursor-not-allowed;
         @apply disabled:hover:bg-gray-50 disabled:hover:text-gray-400;
 
         span.left-icon,
@@ -215,10 +239,10 @@
       }
 
       &.btn-outline {
-        @apply bg-white text-gray-700;
-        @apply border border-gray-200 shadow-none;
+        @apply text-gray-700;
+        @apply bg-transparent border border-gray-200 shadow-none;
         @apply hover:text-gray-700 hover:bg-gray-100;
-        @apply disabled:bg-white disabled:text-gray-300 disabled:border-gray-200 disabled:cursor-not-allowed;
+        @apply disabled:bg-transparent disabled:text-gray-300 disabled:border-gray-200 disabled:cursor-not-allowed;
         @apply disabled:hover:bg-gray-50 disabled:hover:text-gray-400 disabled:hover:border-gray-300;
 
         span.left-icon,
@@ -230,10 +254,10 @@
       }
 
       &.btn-nofill {
-        @apply bg-white text-gray-700;
+        @apply bg-transparent text-gray-700;
         @apply border border-transparent shadow-none;
-        @apply hover:text-gray-700 hover:bg-gray-100 hover:border-gray-100;
-        @apply disabled:bg-white  disabled:text-gray-300 disabled:cursor-not-allowed;
+        @apply hover:text-gray-700 hover:bg-gray-400/20 hover:border-transparent;
+        @apply disabled:bg-transparent disabled:text-gray-300 disabled:cursor-not-allowed;
         @apply disabled:hover:bg-gray-50 disabled:hover:text-gray-400;
 
         &.btn-rmp {
@@ -271,9 +295,9 @@
 
       &.btn-outline {
         @apply bg-white text-red-500;
-        @apply border border-red-200 shadow-none;
+        @apply bg-transparent border border-red-200 shadow-none;
         @apply hover:bg-red-100 hover:text-red-600;
-        @apply disabled:bg-white disabled:text-gray-300 disabled:border-gray-200 disabled:cursor-not-allowed;
+        @apply disabled:bg-transparent disabled:bg-white disabled:text-gray-300 disabled:border-gray-200 disabled:cursor-not-allowed;
         @apply disabled:hover:bg-gray-50 disabled:hover:text-gray-400 disabled:hover:border-gray-300;
 
         span.left-icon,
@@ -285,10 +309,10 @@
       }
 
       &.btn-nofill {
-        @apply bg-white text-red-500;
+        @apply bg-transparent text-red-500;
         @apply border border-transparent shadow-none;
         @apply hover:bg-red-100 hover:border-red-100 hover:text-red-500;
-        @apply disabled:bg-white  disabled:text-gray-300 disabled:cursor-not-allowed;
+        @apply disabled:bg-transparent disabled:text-gray-300 disabled:cursor-not-allowed;
         @apply disabled:hover:bg-gray-50 disabled:hover:text-gray-400;
 
         &.btn-rmp {
@@ -332,10 +356,10 @@
       }
 
       &.btn-outline {
-        @apply bg-white text-green-500;
-        @apply border border-green-200 shadow-none;
+        @apply text-green-500;
+        @apply bg-transparent border border-green-200 shadow-none;
         @apply hover:text-green-600 hover:bg-green-100;
-        @apply disabled:bg-white disabled:text-gray-300 disabled:border-gray-200 disabled:cursor-not-allowed;
+        @apply disabled:bg-transparent disabled:text-gray-300 disabled:border-gray-200 disabled:cursor-not-allowed;
         @apply disabled:hover:bg-gray-50 disabled:hover:text-gray-400 disabled:hover:border-gray-300;
 
         span.left-icon,
@@ -347,10 +371,10 @@
       }
 
       &.btn-nofill {
-        @apply bg-white text-green-500;
+        @apply bg-transparent text-green-500;
         @apply border border-transparent shadow-none;
         @apply hover:bg-green-100 hover:border-green-100 hover:text-green-500;
-        @apply disabled:bg-white disabled:text-gray-300 disabled:cursor-not-allowed;
+        @apply disabled:bg-transparent disabled:text-gray-300 disabled:cursor-not-allowed;
         @apply disabled:hover:bg-gray-50 disabled:hover:text-gray-400;
 
         &.btn-rmp {
@@ -387,10 +411,10 @@
       }
 
       &.btn-outline {
-        @apply bg-white text-yellow-400;
-        @apply border border-yellow-200 shadow-none;
+        @apply text-yellow-400;
+        @apply bg-transparent border border-yellow-200 shadow-none;
         @apply hover:text-yellow-500 hover:bg-yellow-100;
-        @apply disabled:bg-white disabled:text-gray-300 disabled:border-gray-200 disabled:cursor-not-allowed;
+        @apply disabled:bg-transparent disabled:text-gray-300 disabled:border-gray-200 disabled:cursor-not-allowed;
         @apply disabled:hover:bg-gray-50 disabled:hover:text-gray-400 disabled:hover:border-gray-300;
 
         span.left-icon,
@@ -402,10 +426,10 @@
       }
 
       &.btn-nofill {
-        @apply bg-white text-yellow-400;
+        @apply bg-transparent text-yellow-400;
         @apply border border-transparent shadow-none;
         @apply hover:bg-yellow-100 hover:border-yellow-100 hover:text-yellow-500;
-        @apply disabled:bg-white disabled:text-gray-300 disabled:cursor-not-allowed;
+        @apply disabled:bg-transparent disabled:text-gray-300 disabled:cursor-not-allowed;
         @apply disabled:hover:bg-gray-50 disabled:hover:text-gray-400;
 
         span.left-icon,
@@ -705,33 +729,6 @@
     @apply relative flex items-center p-0.5;
     @apply bg-white rounded-lg min-w-[200px];
     @apply shadow shadow-gray-900/10 border border-gray-100;
-  }
-
-  .tabs {
-    &.tabs-underline {
-      @apply flex w-full gap-4 items-center justify-start border-b border-gray-100;
-    }
-
-    .tab {
-      @apply rounded-none border-b-[3px] flex items-center gap-2 text-gray-500 border-transparent font-medium transition-all;
-
-      .notification {
-        @apply text-xs px-2 py-0.5;
-        @apply font-medium rounded-2xl bg-white text-gray-500 border border-gray-200;
-      }
-
-      &.tab-sm {
-        @apply text-sm pb-2 px-1;
-      }
-
-      &.tab-md {
-        @apply text-base pb-3 px-1;
-      }
-
-      &.tab-active {
-        @apply border-brand-500 text-brand-500;
-      }
-    }
   }
 
   .badge {
