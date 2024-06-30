@@ -8,10 +8,11 @@
   import { classnames } from '../../utils/common';
   import type { HTMLAttributeAnchorTarget } from 'svelte/elements';
   import { Icon } from '../icon';
+  import { link as routerLink } from 'svelte-spa-router';
 
   export let className: string = '';
 
-  export let href: string = '#';
+  export let href: string = '';
   export let link: boolean = false;
   export let target: HTMLAttributeAnchorTarget = '';
 
@@ -86,6 +87,7 @@
     {id}
     {href}
     {target}
+    use:routerLink
     class={finalClass}
     on:keydown|preventDefault={e =>
       ['Enter', 'Space'].includes(e.key) && e.currentTarget.click()}

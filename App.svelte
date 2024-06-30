@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Router from 'svelte-spa-router';
   import { Button } from './components/button';
   import { Checkbox } from './components/checkbox';
   import { Dialog } from './components/dialog';
@@ -8,6 +9,8 @@
   import { Heading } from './components/text';
   import { TabsRecord } from './constants/tabs.sample';
   import CaretDown from './icons/CaretDown.svelte';
+  import routes from './routes';
+  import { HeaderNavigationRecord } from './constants/navbar.sample';
 
   let show = false;
   let active = 0;
@@ -17,10 +20,12 @@
   };
 </script>
 
-<div
-  class="w-screen font-sans h-screen flex justify-center items-center"
->
-  <div class="flex items-stretch">
-    <Tabs size="sm" items={TabsRecord} activeTab={1}></Tabs>
+<div class="w-screen font-sans h-screen">
+  <div
+    class="flex h-[56px] w-full px-4 border-b border-gray-200 items-stretch"
+  >
+    <Tabs size="sm" items={HeaderNavigationRecord} activeTab={1} navbar
+    ></Tabs>
   </div>
+  <Router {routes} />
 </div>

@@ -5,6 +5,7 @@
   export let activeTab: number = 0;
   export let size: TabsSize = 'md';
   export let items: TabItem[] = [];
+  export let navbar: boolean = false;
 
   let active: number = 0;
   let outline: HTMLElement;
@@ -27,7 +28,7 @@
       'button'
     ) as HTMLElement;
     updateOutline(element);
-    dispatch('active-tab', { active: item.id });
+    dispatch('active-tab', { item });
   };
 
   const updateOutline = (element: HTMLElement) => {
@@ -51,6 +52,8 @@
         plain
         nofill
         tabindex={i}
+        link={navbar}
+        href={item.value}
         variant="secondary"
         on:click={handleActiveTab(item)}
       >
