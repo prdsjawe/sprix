@@ -59,14 +59,6 @@ type TabsSizeRecord = Record<TabsSize, string>;
 
 type TabsUnderlineVariant = 'base' | 'filled';
 
-interface TabItem {
-	id: any;
-	value: any;
-	label: string;
-	notification: number | null;
-	callback: () => any;
-}
-
 type BadgeVariant = 'primary' | 'secondary' | 'warning' | 'success' | 'error';
 
 type BadgeType = 'base' | 'pill' | 'outline' | 'modern';
@@ -82,3 +74,34 @@ type BadgeTypeRecord = Record<BadgeType, string>;
 type AvatarSize = 'sm' | 'md' | 'lg';
 
 type AvatarSizeRecord = Record<AvatarSize, string>;
+
+interface TabState {
+	name: string;
+	tabs: TabItem[];
+	active: any;
+	callback?: () => any;
+}
+
+interface TabItem {
+	id: any;
+	value: any;
+	label: string;
+	notification: number | null;
+	active?: boolean;
+	callback?: () => any;
+}
+
+interface NavbarState {
+	name: string;
+	tabs: NavbarItem[];
+	active: any;
+	callback?: () => any;
+}
+
+interface NavbarItem {
+	id: any;
+	href: any;
+	label: string;
+	active?: boolean;
+	callback?: () => any;
+}

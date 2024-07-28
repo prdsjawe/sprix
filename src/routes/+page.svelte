@@ -1,7 +1,9 @@
 <script>
-	import { Button } from '$lib/components/button';
+	import Button from '$lib/components/button/Button.svelte';
 </script>
 
-<Button>
-	<svelte:fragment slot="label">Hello</svelte:fragment>
-</Button>
+<div>
+	<Button leftIcon="CaretUpDown" showLeftIcon>
+		<svelte:fragment slot="label">Hello</svelte:fragment>
+	</Button>
+</div>

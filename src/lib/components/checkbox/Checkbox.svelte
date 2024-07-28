@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { createEventDispatcher, onMount } from 'svelte';
+	import './style.css';
+	import { createEventDispatcher } from 'svelte';
 	import { classnames } from '../../utils/common';
 	import { Icon } from '../icon';
 
@@ -15,7 +16,9 @@
 	};
 
 	export let key: number = 0;
+	export let value: any = null;
 	export let title: string = '';
+	export let disabled: boolean = false;
 	export let description: string = '';
 
 	export let checked: boolean = false;
@@ -24,29 +27,33 @@
 
 	let check: boolean = false;
 
-	onMount(() => {
-		check = checked;
-		return () => (check = false);
-	});
+	$: check = checked;
+
+	$: {
+		if (disabled) {
+			check = false;
+		}
+	}
 
 	const handleClick = () => {
 		check = !check;
-		dispatch('check', { check });
+		dispatch('check', { value, check });
 	};
 
 	$: checkboxGroup = classnames(
 		'checkbox flex flex-col w-full',
 		size === 'md' && 'gap-1',
-		TGSR[size]
+		TGSR[size],
+		disabled && 'disabled'
 	);
 
-	$: checkbox = classnames('trigger', TSR[size], check && 'check');
+	$: checkbox = classnames('trigger', TSR[size], check && 'check', disabled && 'disabled');
 </script>
 
 <div class={checkboxGroup}>
 	<div class="flex-1 flex gap-4 w-full items-center">
 		<div class={position === 'left' ? 'order-1' : 'order-2'}>
-			<button id="checkbox-{key}" type="button" class={checkbox} on:click={handleClick}>
+			<button id="checkbox-{key}" type="button" class={checkbox} on:click={handleClick} {disabled}>
 				<span>
 					{#if check}
 						<Icon name="Check" />

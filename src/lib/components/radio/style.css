@@ -1,0 +1,78 @@
+@tailwind components;
+
+@layer components {
+	.radio {
+		&.radio-sm {
+			.sr-hidden {
+				@apply w-4 h-4 opacity-0;
+			}
+
+			.title {
+				@apply text-sm font-medium;
+			}
+
+			.description {
+				@apply text-sm text-gray-500;
+			}
+		}
+
+		&.radio-md {
+			.sr-hidden {
+				@apply w-5 h-5 opacity-0;
+			}
+
+			.title {
+				@apply text-base font-medium;
+			}
+
+			.description {
+				@apply text-base text-gray-500;
+			}
+		}
+
+		&.disabled {
+			.title {
+				@apply !text-gray-300;
+			}
+
+			.description {
+				@apply !text-gray-200;
+			}
+		}
+
+		.trigger {
+			@apply flex flex-1 relative;
+			@apply border border-gray-300 bg-gray-50;
+			@apply transition-all duration-300 cursor-pointer rounded-full;
+			@apply disabled:border-gray-200 disabled:bg-gray-100 disabled:select-none;
+
+			&.check {
+				@apply bg-brand-800 border-brand-900;
+			}
+
+			&:focus {
+				@apply ring-[3px] ring-gray-300/30;
+			}
+
+			&.check:focus {
+				@apply ring-[3px] ring-brand-500/30;
+			}
+
+			&.trigger-sm {
+				@apply w-4 h-4 p-0.5 relative;
+
+				span {
+					@apply w-1.5 h-1.5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full;
+				}
+			}
+
+			&.trigger-md {
+				@apply w-5 h-5 relative;
+
+				span {
+					@apply w-2 h-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full;
+				}
+			}
+		}
+	}
+}

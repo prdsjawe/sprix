@@ -1,13 +1,19 @@
 export enum Navigation {
-  HOME = '/',
+	HOME = '/',
+	DOCS = '/docs'
 }
 
-export const HeaderNavigationRecord: TabItem[] = [
-  {
-    id: 1,
-    label: 'Home',
-    value: Navigation.HOME,
-    notification: null,
-    callback() {},
-  },
+export const HeaderNavigationRecord: NavbarItem[] = [
+	{
+		id: 1,
+		label: 'Home',
+		href: Navigation.HOME,
+		callback() {}
+	},
+	{
+		id: 2,
+		label: 'Docs',
+		href: Navigation.DOCS,
+		callback() {}
+	}
 ];

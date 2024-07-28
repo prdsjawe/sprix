@@ -1,4 +1,5 @@
 <script lang="ts">
+	import './style.css';
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { classnames } from '../../utils/common';
 

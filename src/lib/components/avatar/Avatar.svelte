@@ -22,3 +22,24 @@
 		<div>{placeholder}</div>
 	{/if}
 </div>
+
+<style lang="postcss">
+	.avatar {
+		@apply relative overflow-hidden rounded-full;
+		@apply bg-gray-100 border border-gray-200;
+		@apply flex items-center justify-center;
+		@apply font-medium;
+
+		&.avatar-sm {
+			@apply size-6 text-xs;
+		}
+
+		&.avatar-md {
+			@apply size-10 text-sm;
+		}
+
+		&.avatar-lg {
+			@apply size-14 text-xl;
+		}
+	}
+</style>

@@ -1,0 +1,90 @@
+@tailwind components;
+
+@layer components {
+	.input {
+		@apply flex flex-col gap-2 flex-1;
+
+		.label {
+			&.label-sm {
+				@apply text-sm font-medium;
+			}
+
+			&.label-md {
+				@apply text-sm font-medium;
+			}
+		}
+
+		.field {
+			@apply border border-gray-300 bg-gray-50/10 relative overflow-hidden;
+			@apply flex flex-1 items-center flex-grow transition-all;
+
+			input,
+			textarea {
+				@apply outline-none flex-1;
+			}
+
+			&.input-sm {
+				@apply px-3 py-2;
+				@apply rounded-md gap-2;
+				@apply text-sm;
+
+				&:has(span.right-icon) {
+					@apply pr-2;
+				}
+
+				&:has(span.left-icon) {
+					@apply pl-2;
+				}
+
+				span.left-icon,
+				span.right-icon {
+					@apply size-3.5;
+
+					svg {
+						@apply size-3.5;
+					}
+				}
+			}
+
+			&.input-md {
+				@apply px-3 py-2;
+				@apply rounded-lg gap-2;
+				@apply text-base;
+
+				&:has(span.right-icon) {
+					@apply pr-2;
+				}
+
+				&:has(span.left-icon) {
+					@apply pl-2;
+				}
+
+				span.left-icon,
+				span.right-icon {
+					@apply size-4;
+
+					svg {
+						@apply size-4;
+					}
+				}
+			}
+
+			&:focus-within {
+				@apply border-brand-500 ring-4 ring-brand-500/30;
+			}
+
+			&.invalid:focus-within {
+				@apply border-red-500 ring-4 ring-red-500/30;
+			}
+
+			&.disabled {
+				@apply bg-gray-50 select-none cursor-not-allowed;
+
+				input,
+				textarea {
+					@apply select-none cursor-not-allowed bg-gray-50;
+				}
+			}
+		}
+	}
+}

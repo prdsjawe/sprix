@@ -1,11 +1,12 @@
 <script lang="ts">
-	import { SvelteComponent, createEventDispatcher, type ComponentType } from 'svelte';
+	import './style.css';
+	import { Icon } from '../icon';
 	import type { IconName } from '../../icons';
+	import { createEventDispatcher } from 'svelte';
 	import { classnames } from '../../utils/common';
 	import type { HTMLAttributeAnchorTarget } from 'svelte/elements';
-	import { Icon } from '../icon';
-	export let className: string = '';
 
+	export let className: string = '';
 	export let href: string = '';
 	export let link: boolean = false;
 	export let target: HTMLAttributeAnchorTarget = '';
@@ -17,9 +18,12 @@
 	export let rounded: BtnRounded = 'initial';
 
 	export let grow: boolean = false;
+	export let icon: boolean = false;
 	export let plain: boolean = false;
+	export let soft: boolean = false;
 	export let nofill: boolean = false;
 	export let active: boolean = false;
+	export let download: any = null;
 	export let outline: boolean = false;
 	export let loading: boolean = false;
 	export let disabled: boolean = false;
@@ -56,20 +60,23 @@
 		full: 'btn-rounded-full'
 	};
 
+	$: disabledAttribute = disabled || loading;
+
 	$: finalClass = classnames(
-		'btn',
+		'button',
 		BSR[size],
 		BVR[variant],
 		BRR[rounded],
+		soft && 'btn-soft',
 		plain && 'btn-plain',
 		outline && 'btn-outline',
 		nofill && 'btn-nofill',
 		removePadding && 'btn-rmp',
+		icon && 'btn-icon',
 		active && 'btn-active',
+		disabledAttribute && 'btn-disabled',
 		className
 	);
-
-	$: disabledAttribute = disabled || loading;
 
 	const handleClick = (event: MouseEvent) => {
 		dispatch('click', { event });
@@ -81,6 +88,7 @@
 		{id}
 		{href}
 		{target}
+		{download}
 		class={finalClass}
 		on:keydown|preventDefault={(e) => ['Enter', 'Space'].includes(e.key) && e.currentTarget.click()}
 	>
@@ -112,7 +120,9 @@
 		on:click={handleClick}
 	>
 		{#if loading}
-			<span class="left-icon loading"></span>
+			<span class="left-icon loading">
+				<Icon name="Loading" className="animate-spin" />
+			</span>
 		{:else if showLeftIcon}
 			<span class="left-icon">
 				<Icon name={leftIcon} className="relative" />
