@@ -60,9 +60,7 @@
 		? 'min-w-40'
 		: ''}"
 >
-	<svelte:fragment slot="label">
-		{placeholderLabel}
-	</svelte:fragment>
+	{placeholderLabel}
 </Button>
 
 <DropdownItems

@@ -42,14 +42,12 @@
 									on:click={() => dispatch('close')}
 									plain
 								>
-									<svelte:fragment slot="label">Cancel</svelte:fragment>
+									Cancel
 								</Button>
 							</div>
 							<div>
 								<Button size="sm" variant="primary" on:click={() => dispatch('confirm')}>
-									<svelte:fragment slot="label">
-										{confirmLabel}
-									</svelte:fragment>
+									{confirmLabel}
 								</Button>
 							</div>
 						</div>

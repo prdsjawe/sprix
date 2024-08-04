@@ -15,11 +15,11 @@
 		setTimeout(async () => {
 			await tick();
 			const rect = element.getBoundingClientRect();
-			const parentXPosition = parentElement.getBoundingClientRect().x;
+			const parentYPosition = parentElement.getBoundingClientRect().y;
 			const elementStyle = getComputedStyle(element);
 
-			outline.style.width = `${rect.width - parseFloat(elementStyle.paddingLeft) - parseFloat(elementStyle.paddingRight)}px`;
-			outline.style.left = `${rect.x - parentXPosition + parseFloat(elementStyle.paddingLeft)}px`;
+			outline.style.height = `${rect.height - parseFloat(elementStyle.paddingTop) - parseFloat(elementStyle.paddingBottom)}px`;
+			outline.style.top = `${rect.y - parentYPosition + parseFloat(elementStyle.paddingTop)}px`;
 		}, 200);
 	};
 
@@ -28,14 +28,14 @@
 			if (browser) {
 				currentPath = $page.url.pathname;
 
-				if ($page.url.pathname.lastIndexOf('/') > 0) {
-					currentPath = `/${currentPath.split('/')[1]}`;
+				if ($page.url.pathname.split('/').length <= 2) {
+					return;
 				}
 
-				const activeItem = items.find((item) => {
-					return item.href === currentPath;
-				}) as NavbarItem;
-				const activeButton = document.getElementById(`navbar-item-${activeItem.id}`) as HTMLElement;
+				const activeItem = items.find((item) => item.href === currentPath) as NavbarItem;
+				const activeButton = document.getElementById(
+					`vert-navbar-item-${activeItem.id}`
+				) as HTMLElement;
 				updateOutline(activeButton);
 			}
 		});
@@ -46,16 +46,18 @@
 	});
 </script>
 
-<ul class="flex relative py-2 gap-2 h-full" bind:this={parentElement}>
+<ul class="flex flex-col relative px-2 gap-2 h-full" bind:this={parentElement}>
 	{#each items as item, i}
 		<li class="flex items-center h-full">
 			<Button
-				id={'navbar-item-' + item.id}
+				id={'vert-navbar-item-' + item.id}
 				{size}
 				plain
 				nofill
+				grow
 				tabindex={i}
-				link={true}
+				link={!item.locked}
+				disabled={item.locked}
 				href={item.href}
 				variant={currentPath === item.href ? 'primary' : 'secondary'}
 			>
@@ -65,6 +67,6 @@
 	{/each}
 	<div
 		bind:this={outline}
-		class="absolute h-0.5 bg-brand-500 left-0 bottom-0 transition-all duration-500"
+		class="absolute w-0.5 bg-brand-500 left-0 top-0 transition-all duration-500"
 	></div>
 </ul>

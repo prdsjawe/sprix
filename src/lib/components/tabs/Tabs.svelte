@@ -62,9 +62,7 @@
 				variant={$tabs.active === item.value ? 'primary' : 'secondary'}
 				on:click={handleActiveTab(item)}
 			>
-				<svelte:fragment slot="label">
-					{item.label}
-				</svelte:fragment>
+				{item.label}
 			</Button>
 		</div>
 	{/each}

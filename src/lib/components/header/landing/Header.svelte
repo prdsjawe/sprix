@@ -12,10 +12,9 @@
 				<img src="/favicon.svg" class="h-10 w-full rounded" alt="" />
 				<Heading level={4} className="text-brand-500">Sprix</Heading>
 			</div>
-			<div>
-				<Navbar items={HeaderNavigationRecord}></Navbar>
-			</div>
 		</div>
-		<div>sdgsdfg</div>
+		<div class="h-full">
+			<Navbar items={HeaderNavigationRecord}></Navbar>
+		</div>
 	</div>
 </div>

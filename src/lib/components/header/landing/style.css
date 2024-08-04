@@ -2,7 +2,7 @@
 
 @layer components {
 	.header {
-		@apply h-[56px] w-screen border border-gray-200 flex items-center justify-center;
+		@apply h-[56px] w-screen border border-gray-200 bg-inherit flex items-center justify-center;
 
 		.inner {
 			@apply flex items-center justify-between h-full px-8 max-w-screen-xl 2xl:max-w-screen-2xl w-full;

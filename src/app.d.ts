@@ -103,5 +103,6 @@ interface NavbarItem {
 	href: any;
 	label: string;
 	active?: boolean;
+	locked?: boolean;
 	callback?: () => any;
 }

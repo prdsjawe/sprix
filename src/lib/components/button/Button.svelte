@@ -97,9 +97,9 @@
 				<Icon name={leftIcon} className="relative" />
 			</span>
 		{/if}
-		{#if $$slots.label}
+		{#if $$slots}
 			<span class={grow ? 'flex-grow text-left' : ''}>
-				<slot name="label"></slot>
+				<slot />
 			</span>
 		{/if}
 		{#if showRightIcon}
@@ -128,9 +128,9 @@
 				<Icon name={leftIcon} className="relative" />
 			</span>
 		{/if}
-		{#if $$slots.label}
+		{#if $$slots}
 			<span class={grow ? 'flex-grow text-left' : ''}>
-				<slot name="label"></slot>
+				<slot />
 			</span>
 		{/if}
 		{#if showRightIcon}

@@ -19,9 +19,7 @@
 	<div class="flex flex-col w-full gap-1">
 		{#each items as item}
 			<Button {size} variant="secondary" nofill grow on:click={handleClick(item)}>
-				<svelte:fragment slot="label">
-					{item.label}
-				</svelte:fragment>
+				{item.label}
 			</Button>
 		{/each}
 	</div>
