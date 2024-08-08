@@ -11,20 +11,8 @@
 	>
 		<div class="absolute w-full h-full top-0 left-0 p-4 py-20">
 			<div class="flex flex-col gap-4">
-				<div class="flex flex-col gap-2">
-					<Button nofill size="sm" grow variant="secondary" link href="/docs">
-						Getting Started
-					</Button>
-					<Button nofill size="sm" grow variant="secondary" link href="/docs">How to use</Button>
-					<Button nofill size="sm" grow variant="secondary" link href="/docs">
-						About the developer
-					</Button>
-				</div>
 				<div class="flex flex-col gap-4">
-					<Text className="text-sm font-semibold">Components</Text>
-					<div class="flex flex-col ml-4 gap-2 border-l border-gray-200">
-						<VerticalNavbar items={ComponentNavigation}></VerticalNavbar>
-					</div>
+					<VerticalNavbar items={ComponentNavigation}></VerticalNavbar>
 				</div>
 			</div>
 		</div>

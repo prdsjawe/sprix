@@ -99,10 +99,11 @@ interface NavbarState {
 }
 
 interface NavbarItem {
-	id: any;
-	href: any;
+	id?: any;
+	href?: any;
 	label: string;
 	active?: boolean;
 	locked?: boolean;
 	callback?: () => any;
+	subItems?: NavbarItem[];
 }

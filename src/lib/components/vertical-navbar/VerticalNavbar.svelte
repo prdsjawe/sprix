@@ -3,6 +3,7 @@
 	import { Button } from '../button';
 	import { onMount, tick } from 'svelte';
 	import { browser } from '$app/environment';
+	import NavItem from './NavItem.svelte';
 
 	export let size: TabsSize = 'sm';
 	export let items: NavbarItem[] = [];
@@ -23,16 +24,26 @@
 		}, 200);
 	};
 
+	const findActiveItem = (items: NavbarItem[], path: string): NavbarItem | undefined => {
+		for (const item of items) {
+			if (item.href === path) {
+				return item;
+			}
+			if (item.subItems) {
+				const subItem = findActiveItem(item.subItems, path);
+				if (subItem) {
+					return subItem;
+				}
+			}
+		}
+		return undefined;
+	};
+
 	onMount(() => {
 		const unsubscribe = page.subscribe(($page) => {
 			if (browser) {
 				currentPath = $page.url.pathname;
-
-				if ($page.url.pathname.split('/').length <= 2) {
-					return;
-				}
-
-				const activeItem = items.find((item) => item.href === currentPath) as NavbarItem;
+				const activeItem = findActiveItem(items, currentPath) as NavbarItem;
 				const activeButton = document.getElementById(
 					`vert-navbar-item-${activeItem.id}`
 				) as HTMLElement;
@@ -48,22 +59,18 @@
 
 <ul class="flex flex-col relative px-2 gap-2 h-full" bind:this={parentElement}>
 	{#each items as item, i}
-		<li class="flex items-center h-full">
-			<Button
-				id={'vert-navbar-item-' + item.id}
-				{size}
-				plain
-				nofill
-				grow
-				tabindex={i}
-				link={!item.locked}
-				disabled={item.locked}
-				href={item.href}
-				variant={currentPath === item.href ? 'primary' : 'secondary'}
-			>
-				{item.label}
-			</Button>
-		</li>
+		{#if item.subItems && item.subItems.length > 0}
+			<li class="flex flex-col justify-center gap-2 h-full mt-4">
+				<span class="text-sm font-medium py-2">{item.label}</span>
+				<ul class="flex flex-col gap-2 h-full">
+					{#each item.subItems as subItem, i}
+						<NavItem item={subItem} {i} {size} {currentPath} />
+					{/each}
+				</ul>
+			</li>
+		{:else}
+			<NavItem {item} {i} {size} {currentPath} />
+		{/if}
 	{/each}
 	<div
 		bind:this={outline}

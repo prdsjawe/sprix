@@ -14,23 +14,33 @@ enum Components {
 export const ComponentNavigation: NavbarItem[] = [
 	{
 		id: 1,
-		label: 'Accordion',
-		href: `/docs${Components.ACCORDION}`,
-		locked: true
+		label: 'Getting Started',
+		href: '/docs'
 	},
 	{
 		id: 2,
-		label: 'Alert',
-		href: `/docs${Components.ALERT}`
+		label: 'How to use',
+		href: '/docs/use-components'
 	},
 	{
 		id: 3,
-		label: 'Avatar',
-		href: `/docs${Components.AVATAR}`
+		label: 'About the developer',
+		href: '/docs/about-developer'
 	},
 	{
-		id: 4,
-		label: 'Badge',
-		href: `/docs${Components.BADGE}`
+		label: 'Components',
+		subItems: [
+			{
+				id: 4,
+				label: 'Accordion',
+				href: `/docs${Components.ACCORDION}`,
+				locked: true
+			},
+			{
+				id: 5,
+				label: 'Alert',
+				href: `/docs${Components.ALERT}`
+			}
+		]
 	}
 ];
